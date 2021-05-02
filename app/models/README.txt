@@ -1,0 +1,1 @@
+Untuk mengambil data di database

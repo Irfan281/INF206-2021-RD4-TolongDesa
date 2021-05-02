@@ -1,0 +1,1 @@
+Untuk menyimpan file javascript
