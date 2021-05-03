@@ -1,0 +1,32 @@
+body {
+  background-image: url(../assets/LP-HeroBG.png);
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: 50vmax;
+}
+
+.btn-orange {
+  background-color: #ff7133;
+}
+
+.btn-orange:hover {
+  transition: 0.4s;
+  background-color: #c95d2e;
+}
+
+.hero-text {
+  margin-top: 12em;
+}
+
+@media (max-width: 992px) {
+  body {
+    background-size: 75%;
+  }
+  .hero-text {
+    margin-top: 20em;
+  }
+}
+
+footer {
+  margin-top: 18em;
+}
