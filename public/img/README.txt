@@ -1,1 +1,0 @@
-Untuk menyimpan image
