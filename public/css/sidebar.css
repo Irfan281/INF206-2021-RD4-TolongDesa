@@ -1,0 +1,23 @@
+.sidebar {
+    position: fixed;
+    width: 270px;
+    
+    left: 50px;
+    top: 58px;
+
+    background: #70e0ae;
+    box-shadow: 2px 5px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+@media (max-width: 1221px) {
+    .sidebar {
+        width: 200px;
+    }
+}
+
+.btn-grey-hover:hover {
+    transition: 0.4s;
+    background-color: rgba(128, 128, 128, 0.548);
+    opacity: 0.8;
+}
