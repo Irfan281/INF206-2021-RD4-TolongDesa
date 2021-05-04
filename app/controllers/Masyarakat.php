@@ -29,6 +29,16 @@ class Masyarakat extends Controller
         }
     }
 
+    public function masuk()
+    {
+        if ($this->model('Masyarakat_model')->cekEmailPassword($_POST) > 0) {
+            header('Location: ' . BASEURL . '/home/index');
+            exit;
+        } else {
+            $this->login();
+        }
+    }
+
     public function profil()
     {
         $this->view('templates/header');

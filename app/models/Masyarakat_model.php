@@ -43,4 +43,20 @@ class Masyarakat_model
 
         return $this->db->rowCount();
     }
+
+    public function cekEmailPassword($data)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE email=:email');
+        $this->db->bind('email', $data['email']);
+        $this->db->execute();
+
+        if ($this->db->rowCount() > 0) {
+            $row = $this->db->single();
+            if (password_verify($data['password'], $row['password'])) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
 }
