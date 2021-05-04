@@ -1,5 +1,5 @@
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/LandingPage.css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/LandingPage.css" />
 
     <title>TolongDesa</title>
     </head>
