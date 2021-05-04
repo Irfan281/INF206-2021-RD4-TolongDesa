@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="<?= BASEURL; ?>/css/navbar.css">
 </head>
 
 <body>
@@ -6,13 +6,13 @@
   <nav class="navbar shadow-lg navbar-expand navbar-style fixed-bottom d-md-none d-lg-none d-xl-none">
     <ul class="navbar-nav nav-justified w-100">
       <li class="nav-item">
-        <a class="btn-grey fs-2" href="beranda.php"><i class="bx bxs-home-circle"></i></a>
+        <a class="btn-grey fs-2" href="<?= BASEURL; ?>/home/index"><i class="bx bxs-home-circle"></i></a>
       </li>
       <li class="nav-item">
-        <a class="btn-grey fs-2" href="#"><i class="bx bx-history"></i></a>
+        <a class="btn-grey fs-2" href="<?= BASEURL; ?>/home/riwayat"><i class="bx bx-history"></i></a>
       </li>
       <li class="nav-item">
-        <a class="fs-2" href="profil.php"  style="color : #FF7133"><i class='bx bxs-user-account'></i></a>
+        <a class="fs-2" href="<?= BASEURL; ?>/home/profil" style="color : #FF7133"><i class='bx bxs-user-account'></i></a>
       </li>
     </ul>
   </nav>
