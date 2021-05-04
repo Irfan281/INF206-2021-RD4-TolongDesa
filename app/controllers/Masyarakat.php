@@ -24,6 +24,8 @@ class Masyarakat extends Controller
         if ($this->model('Masyarakat_model')->tambahDataMasyarakat($_POST) > 0) {
             header('Location: ' . BASEURL . '/masyarakat/login');
             exit;
+        } else {
+            $this->index();
         }
     }
 
