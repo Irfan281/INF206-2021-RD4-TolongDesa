@@ -9,12 +9,22 @@ class Masyarakat extends Controller
 
     public function registrasi()
     {
+        session_start();
+        if (isset($_SESSION['login'])) {
+            header("Location: " . BASEURL . "/home");
+            exit;
+        }
         $this->view('templates/header');
         $this->view('masyarakat/registrasi');
     }
 
     public function login()
     {
+        session_start();
+        if (isset($_SESSION['login'])) {
+            header("Location: " . BASEURL . "/home");
+            exit;
+        }
         $this->view('templates/header');
         $this->view('masyarakat/login');
     }

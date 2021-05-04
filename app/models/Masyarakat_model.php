@@ -53,6 +53,8 @@ class Masyarakat_model
         if ($this->db->rowCount() > 0) {
             $row = $this->db->single();
             if (password_verify($data['password'], $row['password'])) {
+                session_start();
+                $_SESSION['login'] = true;
                 return true;
             } else {
                 return false;
