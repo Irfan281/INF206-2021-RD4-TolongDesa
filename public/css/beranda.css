@@ -1,0 +1,14 @@
+body {
+    background-image: url(../assets/bg1.png);
+    background-position: top right;
+    background-repeat: repeat;
+    background-size: 95vmax;
+
+    overflow-x: hidden;
+}
+
+.peringkat {            
+    background: #70E0AE;
+    box-shadow: 2px 5px 14px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
