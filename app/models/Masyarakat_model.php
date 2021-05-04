@@ -25,6 +25,10 @@ class Masyarakat_model
 
     public function tambahDataMasyarakat($data)
     {
+        // TODO: cek email sudah terdaftar atau belum
+
+        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
         $query = "INSERT INTO $this->table VALUES ('', :nama, :alamat, :no_hp, :domisili, :email, :password, :peran, :poin)";
         $this->db->query($query);
         $this->db->bind('nama', $data['nama']);
@@ -38,5 +42,23 @@ class Masyarakat_model
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function cekEmailPassword($data)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE email=:email');
+        $this->db->bind('email', $data['email']);
+        $this->db->execute();
+
+        if ($this->db->rowCount() > 0) {
+            $row = $this->db->single();
+            if (password_verify($data['password'], $row['password'])) {
+                session_start();
+                $_SESSION['login'] = true;
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 }

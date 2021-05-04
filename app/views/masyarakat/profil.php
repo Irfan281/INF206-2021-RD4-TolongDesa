@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/profil.css">
+<link rel="stylesheet" href="<?= BASEURL; ?>/css/profil.css">
 
 <title>Profil | TolongDesa</title>
 </head>
@@ -23,7 +23,7 @@
                 <div class="container py-4 card-profil me-5 ms-md-4 ms-0">
                     <div class="row">
                         <div class="col-sm d-flex justify-content-center my-4">
-                            <img src="assets/foto1.png" alt="foto1" width="140" height="140" />
+                            <img src="<?= BASEURL; ?>/assets/foto1.png" alt="foto1" width="140" height="140" />
                         </div>
                         <div class="col-sm d-flex justify-content-center my-4">
                             <div>
