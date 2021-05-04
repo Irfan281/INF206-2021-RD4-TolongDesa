@@ -1,0 +1,13 @@
+.navbar-style {
+    background: #70e0ae;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.btn-grey {
+    color: #ffffff;
+}
+
+.btn-grey:hover {
+    transition: 0.4s;
+    color: rgba(128, 128, 128, 0.548);
+}
