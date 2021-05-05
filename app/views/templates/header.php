@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?= BASEURL; ?>/assets/favicon.png" type="image/x-icon">
     <style>
         body {
             font-family: "Poppins", sans-serif;
