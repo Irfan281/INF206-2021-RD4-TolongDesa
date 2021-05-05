@@ -10,6 +10,8 @@ class Home extends Controller
             exit;
         }
         $this->view('templates/header');
+        $this->view('templates/sidebar-beranda');
+        $this->view('templates/navbar-beranda');
         $this->view('home/index');
     }
 
@@ -22,5 +24,18 @@ class Home extends Controller
         }
         $this->view('templates/header');
         $this->view('masyarkat/profil');
+    }
+
+    public function mintatolong()
+    {
+        session_start();
+        if (!isset($_SESSION['login'])) {
+            header("Location: " . BASEURL . "/masyarakat/login");
+            exit;
+        }
+        $this->view('templates/header');
+        $this->view('templates/sidebar-kosong');
+        $this->view('templates/navbar-kosong');
+        $this->view('home/mintatolong');
     }
 }

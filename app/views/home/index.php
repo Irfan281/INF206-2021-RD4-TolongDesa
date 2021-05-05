@@ -5,14 +5,6 @@
     </head>
 
     <body>
-        <!-- SideBar -->
-        <?php include "../app/views/templates/sidebar-beranda.php"; ?>
-        <!-- Akhir SideBar -->
-
-        <!-- Navbar untuk Mobile -->
-        <?php include "../app/views/templates/navbar-beranda.php"; ?>
-        <!-- Akhir Navbar untuk Mobile -->
-
         <!-- Section Isi -->
         <div class="row">
             <div class="col-md-2 d-none d-md-block"></div>
@@ -22,7 +14,28 @@
                 <br>
                 <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white" style="float: right; margin-right: 5rem;" href="<?= BASEURL; ?>/home/mintatolong">Minta Tolong</a>
                 <br>
-                <?php include "../app/views/templates/cardtolong.php" ?>
+                <div class="container">
+                    <div class="card m-5 shadow" style="background: #F9F9FB; border: #F9F9FB; border-radius: 8px;">
+                        <div class="card-body m-3">
+                            <h5 class="card-title">Peminjaman Tangga</h5>
+                            <h6 class="card-subtitle mt-2 text-muted">Deskripsi :</h6>
+                            <p class="card-text">Saya ingin meminjam tangga untuk memasang gorden, kepada masyarakat yang memilikinya mungkin dapat membantu saya</p>
+                            <h6 class="card-subtitle mt-2 text-muted">Alamat :</h6>
+                            <p class="card-text">Jalan Burung Gagak No. 12</p>
+                            <button type="button" class="btn btn-secondary btn-sm" disabled>Tags 1</button>
+                            <button type="button" class="btn btn-secondary btn-sm" disabled>Tags 2</button>
+                            <button type="button" class="btn btn-secondary btn-sm" disabled>Tags 3</button>
+                            <div class="mt-4">
+                                <img class="position-absolute img-fluid" src="<?= BASEURL; ?>/assets/foto1.png" alt="foto1" width="50" height="50" />
+                                <div style="margin-left: 3.8em; padding-top: 0.4em">
+                                    <p class="m-0 fw-normal">Reza Habibie</p>
+                                    <p class="d-inline fw-light mb-0">Masyarakat</p>
+                                    <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white me-0 me-lg-5" href="<?= BASEURL; ?>/home/menolong" style="float: right;">Tolong</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-2">
                 <div style="display : table; margin : auto; padding-bottom: 8rem;">
