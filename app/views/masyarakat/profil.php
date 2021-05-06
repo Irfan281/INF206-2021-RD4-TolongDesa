@@ -4,14 +4,6 @@
 </head>
 
 <body>
-    <!-- SideBar -->
-    <?php include "../app/views/templates/sidebar-profil.php"; ?>
-    <!-- Akhir SideBar -->
-
-    <!-- Navbar untuk mobile -->
-    <?php include "../app/views/templates/navbar-profil.php"; ?>
-    <!-- Akhir Navbar -->
-
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
@@ -27,23 +19,23 @@
                         </div>
                         <div class="col-sm d-flex justify-content-center my-4">
                             <div>
-                                <h3 class="d-inline">Reza Habibie</h3>
-                                <button type="button" class="btn fw-light text-white btn-sm px-3 py-0 ms- mb-2" style="background-color: #ff4d00;" disabled>Masyarakat</button>
+                                <h3 class="d-inline"><?= $data['nama'] ?></h3>
+                                <button type="button" class="btn fw-light text-white btn-sm px-3 py-0 ms- mb-2" style="background-color: #ff4d00;" disabled><?= $data['peran']; ?></button>
                                 <table>
                                     <tr>
                                         <td>Email</td>
                                         <td>:</td>
-                                        <td>rezahabibie@gmail.com</td>
+                                        <td><?= $data['email']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>No. HP</td>
                                         <td>:</td>
-                                        <td>08123456789</td>
+                                        <td><?= $data['no_hp']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Domisili</td>
                                         <td>:</td>
-                                        <td>Desa Beurawe</td>
+                                        <td><?= $data['domisili']; ?></td>
                                     </tr>
                                 </table>
                             </div>
@@ -51,7 +43,7 @@
                         <div class="col-sm d-flex justify-content-center my-4">
                             <div class="poin text-center text-white p-3">
                                 <h6>Pertolongan Kamu</h6>
-                                <p class="fw-bolder" style="font-size: 50px;">5</p>
+                                <p class="fw-bolder" style="font-size: 50px;"><?= $data['poin']; ?></p>
                             </div>
                         </div>
                     </div>

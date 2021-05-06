@@ -10,12 +10,12 @@
       <div class="ms-4 mb-4">
         <a class="btn btn-grey-hover text-white mt-4 pe-5" href="<?= BASEURL; ?>/home"><i class="bx bxs-home-circle"></i>&emsp;&emsp;Beranda</a>
         <a class="btn btn-grey-hover text-white mt-4 pe-5" href="<?= BASEURL; ?>/home/riwayat"><i class="bx bx-history"></i>&emsp;&emsp;Riwayat</a>
-        <a href="profil.php" style="text-decoration : none;">
+        <a href="<?= BASEURL; ?>/masyarakat/profil" style="text-decoration : none;">
           <div class="btn-grey-hover p-2 rounded-2" style="margin-top: 17em; margin-right: 2em; background-color: #FF7133;">
             <img class="position-absolute img-fluid" src="<?= BASEURL; ?>/assets/foto1.png" alt="foto1" width="50" height="50" />
             <div class="text-white" style="margin-left: 3.8em; padding-top: 0.4em">
-              <p class="m-0 fw-normal">Reza Habibie</p>
-              <p class="fw-light mb-0">Masyarakat</p>
+              <p class="m-0 fw-normal"><?= $data[0]; ?></p>
+              <p class="fw-light mb-0"><?= $data[1]; ?></p>
             </div>
           </div>
         </a>

@@ -9,7 +9,7 @@
           <a class="fs-2" href="<?= BASEURL; ?>/home" style="color : #FF7133"><i class="bx bxs-home-circle"></i></a>
         </li>
         <li class="nav-item">
-          <a class="btn-grey fs-2" href="<?= BASEURL; ?>/riwayat"><i class="bx bx-history"></i></a>
+          <a class="btn-grey fs-2" href="<?= BASEURL; ?>/home/riwayat"><i class="bx bx-history"></i></a>
         </li>
         <li class="nav-item">
           <a class="btn-grey fs-2" href="<?= BASEURL; ?>/masyarakat/profil"><i class='bx bxs-user-account'></i></a>

@@ -18,7 +18,7 @@ class Masyarakat_model
 
     public function getMasyarakatById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id=:id');
+        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_masyarakat=:id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }
@@ -55,6 +55,9 @@ class Masyarakat_model
             if (password_verify($data['password'], $row['password'])) {
                 session_start();
                 $_SESSION['login'] = true;
+                $_SESSION['id'] = $row['id_masyarakat'];
+                $_SESSION['nama'] = $row['nama'];
+                $_SESSION['peran'] = $row['peran'];
                 return true;
             } else {
                 return false;
