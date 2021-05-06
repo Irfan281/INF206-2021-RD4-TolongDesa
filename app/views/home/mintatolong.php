@@ -34,13 +34,13 @@
                             <label class="form-label">Tags</label>
                             <div class="row g-3" style="width: 300px;">
                                 <div class="col">
-                                    <input name="tags1" type="tags1" id="inputtags1" class="form-control" placeholder="Tags 1" />
+                                    <input name="tag1" type="tag1" id="inputtag1" class="form-control" placeholder="Tag 1" />
                                 </div>
                                 <div class="col">
-                                    <input name="tags2" type="tags2" id="inputtags2" class="form-control" placeholder="Tags 2" />
+                                    <input name="tag2" type="tag2" id="inputtag2" class="form-control" placeholder="Tag 2" />
                                 </div>
                                 <div class="col">
-                                    <input name="tags3" type="tags3" id="inputtags3" class="form-control" placeholder="Tags 3" />
+                                    <input name="tag3" type="tag3" id="inputtag3" class="form-control" placeholder="Tag 3" />
                                 </div>
                             </div>
                         </div>
