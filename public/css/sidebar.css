@@ -1,6 +1,7 @@
 .sidebar {
     position: fixed;
-    width: 270px;
+
+    width: 290px;
     
     left: 50px;
     top: 58px;
@@ -8,6 +9,12 @@
     background: #70e0ae;
     box-shadow: 2px 5px 14px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+}
+
+@media (max-width: 1333px) {
+    .sidebar {
+        width: 250px;
+    }
 }
 
 @media (max-width: 1221px) {
@@ -20,4 +27,8 @@
     transition: 0.4s;
     background-color: rgba(128, 128, 128, 0.548);
     opacity: 0.8;
+}
+
+.btn-pd {
+    padding-right:5em;
 }
