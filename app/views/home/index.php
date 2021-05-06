@@ -22,9 +22,9 @@
                             <p class="card-text">Saya ingin meminjam tangga untuk memasang gorden, kepada masyarakat yang memilikinya mungkin dapat membantu saya</p>
                             <h6 class="card-subtitle mt-2 text-muted">Alamat :</h6>
                             <p class="card-text">Jalan Burung Gagak No. 12</p>
-                            <button type="button" class="btn btn-secondary btn-sm" disabled>Tags 1</button>
-                            <button type="button" class="btn btn-secondary btn-sm" disabled>Tags 2</button>
-                            <button type="button" class="btn btn-secondary btn-sm" disabled>Tags 3</button>
+                            <span class="badge bg-secondary">Tags 1</span>
+                            <span class="badge bg-secondary">Tags 2</span>
+                            <span class="badge bg-secondary">Tags 3</span>
                             <div class="mt-4">
                                 <img class="position-absolute img-fluid" src="<?= BASEURL; ?>/assets/foto1.png" alt="foto1" width="50" height="50" />
                                 <div style="margin-left: 3.8em; padding-top: 0.4em">
