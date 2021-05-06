@@ -12,7 +12,7 @@
         <a class="btn-grey fs-2" href="<?= BASEURL; ?>/home/riwayat"><i class="bx bx-history"></i></a>
       </li>
       <li class="nav-item">
-        <a class="fs-2" href="<?= BASEURL; ?>/home/profil" style="color : #FF7133"><i class='bx bxs-user-account'></i></a>
+        <a class="fs-2" href="<?= BASEURL; ?>/masyarakat/profil" style="color : #FF7133"><i class='bx bxs-user-account'></i></a>
       </li>
     </ul>
   </nav>

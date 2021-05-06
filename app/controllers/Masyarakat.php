@@ -51,8 +51,16 @@ class Masyarakat extends Controller
 
     public function profil()
     {
+        session_start();
+        if (!isset($_SESSION['login'])) {
+            header("Location: " . BASEURL . "/masyarakat/login");
+            exit;
+        }
+        $data = $this->model('Masyarakat_model')->getMasyarakatById($_SESSION['id']);
         $this->view('templates/header');
-        $this->view('masyarakat/profil');
+        $this->view('templates/sidebar-profil', [$_SESSION['nama'], $_SESSION['peran']]);
+        $this->view('templates/navbar-profil');
+        $this->view('masyarakat/profil', $data);
     }
 
     public function logout()

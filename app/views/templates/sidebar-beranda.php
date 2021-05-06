@@ -14,8 +14,8 @@
           <div class="btn-grey-hover p-2 rounded-2" style="margin-top: 17em; margin-right: 2em;">
             <img class="position-absolute img-fluid" src="<?= BASEURL; ?>/assets/foto1.png" alt="foto1" width="50" height="50" />
             <div class="text-white" style="margin-left: 3.8em; padding-top: 0.4em">
-              <p class="m-0 fw-normal">Reza Habibie</p>
-              <p class="fw-light mb-0">Masyarakat</p>
+              <p class="m-0 fw-normal"><?= $data[0]; ?></p>
+              <p class="fw-light mb-0"><?= $data[1]; ?></p>
             </div>
           </div>
         </a>
