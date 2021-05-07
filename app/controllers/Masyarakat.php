@@ -29,17 +29,23 @@ class Masyarakat extends Controller
 
     public function tambah()
     {
+        if ($this->model('Masyarakat_model')->cekEmail($_POST) > 0) {
+            $_SESSION['registrasi'] = false;
+            header('Location: ' . BASEURL . '/masyarakat/registrasi');
+            exit;
+        }
         if ($this->model('Masyarakat_model')->tambahDataMasyarakat($_POST) > 0) {
+            $_SESSION['registrasi'] = true;
             header('Location: ' . BASEURL . '/masyarakat/login');
             exit;
-        } else {
-            $this->index();
         }
+        header('Location: ' . BASEURL . '/masyarakat/registrasi');
+        exit;
     }
 
     public function masuk()
     {
-        if ($this->model('Masyarakat_model')->cekEmailPassword($_POST) > 0) {
+        if ($this->model('Masyarakat_model')->cekEmail($_POST) > 0) {
             header('Location: ' . BASEURL . '/home/index');
             exit;
         } else {

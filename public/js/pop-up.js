@@ -67,3 +67,11 @@ function logout() {
     }
   )
 }
+
+const popUp = document.getElementsByClassName('popup')[0];
+if (popUp.dataset.popup_registrasi == false) {
+  daftargagal();
+}
+if (popUp.dataset.popup_registrasi == true) {
+  daftarsukses();
+}

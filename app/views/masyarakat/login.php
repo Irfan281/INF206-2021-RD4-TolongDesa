@@ -5,6 +5,9 @@
     </head>
 
     <body>
+      <!-- cek session popup -->
+      <div class="popup" data-popup_registrasi="<?= isset($_SESSION['registrasi']) ? $_SESSION['registrasi'] : "null"; ?>"><?php unset($_SESSION['registrasi']); ?></div>
+
       <div class="d-flex align-items-center min-vh-100">
         <div class="container card-login">
           <div class="text-center">
@@ -21,7 +24,7 @@
                 <input type="password" class="form-control style-form" name="password" placeholder="Password" />
               </div>
               <button type="submit" class="btn btn-orange shadow-sm border-3 py-1 px-4 mb-5 fw-bold text-white">Login</button>
-              <p>Belum punya akun? <a href="<?= BASEURL; ?>/masyarakat/daftar">Daftar disini</a></p>
+              <p>Belum punya akun? <a href="<?= BASEURL; ?>/masyarakat/registrasi">Daftar disini</a></p>
             </form>
           </div>
         </div>

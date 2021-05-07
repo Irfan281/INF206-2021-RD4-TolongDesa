@@ -5,6 +5,9 @@
     </head>
 
     <body>
+      <!-- cek session popup -->
+      <div class="popup" data-popup_registrasi="<?= isset($_SESSION['registrasi']) ? $_SESSION['registrasi'] : "null"; ?>"><?php unset($_SESSION['registrasi']); ?></div>
+
       <div class="d-flex align-items-center min-vh-100 my-4">
         <div class="container card-login">
           <div class="text-center">
