@@ -6,7 +6,7 @@
 
     <body>
       <!-- cek session popup -->
-      <div class="popup" data-popup_registrasi="<?= isset($_SESSION['registrasi']) ? $_SESSION['registrasi'] : "null"; ?>"><?php unset($_SESSION['registrasi']); ?></div>
+      <div class="popup-registrasi" data-popup_registrasi="<?= isset($_SESSION['popup']['registrasi']) ? $_SESSION['popup']['registrasi'] : "null"; ?>"><?php unset($_SESSION['popup']['registrasi']); ?></div>
 
       <div class="d-flex align-items-center min-vh-100 my-4">
         <div class="container card-login">
@@ -41,9 +41,10 @@
                 </select>
               </div>
               <div class="mb-5">
-                <select class="form-select style-form text-muted" aria-label="Default select example" name="domisili" required>
+                <select class="form-select style-form text-muted popup-domisili" aria-label="Default select example" name="domisili" required>
                   <option selected>Domisili</option>
                   <option value="Desa Beurawe">Desa Beurawe</option>
+
                 </select>
               </div>
               <button type="submit" class="btn btn-orange shadow-sm border-3 py-1 px-4 mb-5 fw-bold text-white">Daftar</button>

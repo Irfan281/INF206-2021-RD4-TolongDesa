@@ -68,10 +68,39 @@ function logout() {
   )
 }
 
-const popUp = document.getElementsByClassName('popup')[0];
-if (popUp.dataset.popup_registrasi == false) {
+// const popUp = document.getElementsByClassName('popup');
+// if (popUp[0].dataset.popup_registrasi == false) {
+//   daftargagal();
+// }
+// if (popUp[0].dataset.popup_registrasi == true) {
+//   daftarsukses();
+// }
+// if (popUp[1] != undefined) {
+//   if (popUp[1].dataset.popup_login == false) {
+//     logingagal();
+//   }
+// }
+const popUpRegistrasi = document.getElementsByClassName('popup-registrasi')[0];
+const popUpDomisili = document.getElementsByClassName('popup-domisili')[0];
+const popUpLogin = document.getElementsByClassName('popup-login')[0];
+
+if (popUpRegistrasi.dataset.popup_registrasi == false) {
   daftargagal();
 }
-if (popUp.dataset.popup_registrasi == true) {
+
+popUpDomisili.addEventListener('click', function() {
+  if(popUpDomisili.classList.contains('popup-domisili')){
+    popUpDomisili.classList.remove('popup-domisili');
+    domisili();
+  }
+});
+
+if (popUpRegistrasi.dataset.popup_registrasi == true) {
   daftarsukses();
+}
+
+if (popUpLogin != undefined) {
+  if (popUpLogin.dataset.popup_login == false) {
+    logingagal();
+  }
 }

@@ -30,12 +30,12 @@ class Masyarakat extends Controller
     public function tambah()
     {
         if ($this->model('Masyarakat_model')->cekEmail($_POST) > 0) {
-            $_SESSION['registrasi'] = false;
+            $_SESSION['popup']['registrasi'] = false;
             header('Location: ' . BASEURL . '/masyarakat/registrasi');
             exit;
         }
         if ($this->model('Masyarakat_model')->tambahDataMasyarakat($_POST) > 0) {
-            $_SESSION['registrasi'] = true;
+            $_SESSION['popup']['registrasi'] = true;
             header('Location: ' . BASEURL . '/masyarakat/login');
             exit;
         }
@@ -46,11 +46,14 @@ class Masyarakat extends Controller
     public function masuk()
     {
         if ($this->model('Masyarakat_model')->cekEmail($_POST) > 0) {
-            header('Location: ' . BASEURL . '/home/index');
-            exit;
-        } else {
-            $this->login();
+            if ($this->model('Masyarakat_model')->cekPassword($_POST) > 0) {
+                header('Location: ' . BASEURL . '/home/index');
+                exit;
+            }
         }
+        $_SESSION['popup']['login'] = false;
+        header('Location: ' . BASEURL . '/masyarakat/login');
+        exit;
     }
 
     public function profil()

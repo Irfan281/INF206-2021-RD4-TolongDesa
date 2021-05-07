@@ -6,7 +6,9 @@
 
     <body>
       <!-- cek session popup -->
-      <div class="popup" data-popup_registrasi="<?= isset($_SESSION['registrasi']) ? $_SESSION['registrasi'] : "null"; ?>"><?php unset($_SESSION['registrasi']); ?></div>
+      <div class="popup-registrasi" data-popup_registrasi="<?= isset($_SESSION['popup']['registrasi']) ? $_SESSION['popup']['registrasi'] : "null"; ?>"><?php unset($_SESSION['popup']['registrasi']); ?></div>
+
+      <div class="popup-login" data-popup_login="<?= isset($_SESSION['popup']['login']) ? $_SESSION['popup']['login'] : "null"; ?>"><?php unset($_SESSION['popup']['login']); ?></div>
 
       <div class="d-flex align-items-center min-vh-100">
         <div class="container card-login">
