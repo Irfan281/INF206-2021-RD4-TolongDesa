@@ -5,6 +5,11 @@
     </head>
 
     <body>
+      <!-- cek session popup -->
+      <div class="popup-registrasi" data-popup_registrasi="<?= isset($_SESSION['popup']['registrasi']) ? $_SESSION['popup']['registrasi'] : "null"; ?>"><?php unset($_SESSION['popup']['registrasi']); ?></div>
+
+      <div class="popup-login" data-popup_login="<?= isset($_SESSION['popup']['login']) ? $_SESSION['popup']['login'] : "null"; ?>"><?php unset($_SESSION['popup']['login']); ?></div>
+
       <div class="d-flex align-items-center min-vh-100">
         <div class="container card-login">
           <div class="text-center">
@@ -15,21 +20,21 @@
             <form class="px-5" method="POST" action="<?= BASEURL; ?>/masyarakat/masuk">
               <div class="mb-5">
                 <h6 class="fw-bold text-muted mb-3">Silakan Login</h6>
-                <input type="email" class="form-control style-form" name="email" placeholder="Email" />
+                <input type="email" class="form-control style-form" name="email" placeholder="Email" required />
               </div>
               <div class="mb-5">
-                <input type="password" class="form-control style-form" name="password" placeholder="Password" />
+                <input type="password" class="form-control style-form" name="password" placeholder="Password" required />
               </div>
               <button type="submit" class="btn btn-orange shadow-sm border-3 py-1 px-4 mb-5 fw-bold text-white">Login</button>
-              <p>Belum punya akun? <a href="<?= BASEURL; ?>/masyarakat/daftar">Daftar disini</a></p>
+              <p>Belum punya akun? <a href="<?= BASEURL; ?>/masyarakat/registrasi">Daftar disini</a></p>
             </form>
           </div>
         </div>
       </div>
 
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-      <script src="<?= BASEURL; ?>/js/pop-up.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+      <script src="<?= BASEURL; ?>/js/pop-up.js"></script>
     </body>
 
     </html>

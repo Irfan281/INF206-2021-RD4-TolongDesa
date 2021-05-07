@@ -5,6 +5,9 @@
     </head>
 
     <body>
+      <!-- cek session popup -->
+      <div class="popup-registrasi" data-popup_registrasi="<?= isset($_SESSION['popup']['registrasi']) ? $_SESSION['popup']['registrasi'] : "null"; ?>"><?php unset($_SESSION['popup']['registrasi']); ?></div>
+
       <div class="d-flex align-items-center min-vh-100 my-4">
         <div class="container card-login">
           <div class="text-center">
@@ -38,9 +41,10 @@
                 </select>
               </div>
               <div class="mb-5">
-                <select class="form-select style-form text-muted" aria-label="Default select example" name="domisili" required>
+                <select class="form-select style-form text-muted popup-domisili" aria-label="Default select example" name="domisili" required>
                   <option selected>Domisili</option>
                   <option value="Desa Beurawe">Desa Beurawe</option>
+
                 </select>
               </div>
               <button type="submit" class="btn btn-orange shadow-sm border-3 py-1 px-4 mb-5 fw-bold text-white">Daftar</button>
@@ -51,8 +55,8 @@
       </div>
 
       <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-      <script src="<?= BASEURL; ?>/js/pop-up.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+      <script src="<?= BASEURL; ?>/js/pop-up.js"></script>
     </body>
 
     </html>

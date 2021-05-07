@@ -9,7 +9,6 @@ class Masyarakat extends Controller
 
     public function registrasi()
     {
-        session_start();
         if (isset($_SESSION['login'])) {
             header("Location: " . BASEURL . "/home");
             exit;
@@ -20,7 +19,6 @@ class Masyarakat extends Controller
 
     public function login()
     {
-        session_start();
         if (isset($_SESSION['login'])) {
             header("Location: " . BASEURL . "/home");
             exit;
@@ -31,27 +29,35 @@ class Masyarakat extends Controller
 
     public function tambah()
     {
+        if ($this->model('Masyarakat_model')->cekEmail($_POST) > 0) {
+            $_SESSION['popup']['registrasi'] = false;
+            header('Location: ' . BASEURL . '/masyarakat/registrasi');
+            exit;
+        }
         if ($this->model('Masyarakat_model')->tambahDataMasyarakat($_POST) > 0) {
+            $_SESSION['popup']['registrasi'] = true;
             header('Location: ' . BASEURL . '/masyarakat/login');
             exit;
-        } else {
-            $this->index();
         }
+        header('Location: ' . BASEURL . '/masyarakat/registrasi');
+        exit;
     }
 
     public function masuk()
     {
-        if ($this->model('Masyarakat_model')->cekEmailPassword($_POST) > 0) {
-            header('Location: ' . BASEURL . '/home/index');
-            exit;
-        } else {
-            $this->login();
+        if ($this->model('Masyarakat_model')->cekEmail($_POST) > 0) {
+            if ($this->model('Masyarakat_model')->cekPassword($_POST) > 0) {
+                header('Location: ' . BASEURL . '/home/index');
+                exit;
+            }
         }
+        $_SESSION['popup']['login'] = false;
+        header('Location: ' . BASEURL . '/masyarakat/login');
+        exit;
     }
 
     public function profil()
     {
-        session_start();
         if (!isset($_SESSION['login'])) {
             header("Location: " . BASEURL . "/masyarakat/login");
             exit;
