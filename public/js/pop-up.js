@@ -88,12 +88,14 @@ if (popUpRegistrasi.dataset.popup_registrasi == false) {
   daftargagal();
 }
 
-popUpDomisili.addEventListener('click', function() {
-  if(popUpDomisili.classList.contains('popup-domisili')){
-    popUpDomisili.classList.remove('popup-domisili');
-    domisili();
-  }
-});
+if (popUpDomisili != undefined) {
+  popUpDomisili.addEventListener('click', function() {
+    if(popUpDomisili.classList.contains('popup-domisili')){
+      popUpDomisili.classList.remove('popup-domisili');
+      domisili();
+    }
+  });
+}
 
 if (popUpRegistrasi.dataset.popup_registrasi == true) {
   daftarsukses();

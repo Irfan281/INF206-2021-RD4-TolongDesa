@@ -20,10 +20,10 @@
             <form class="px-5" method="POST" action="<?= BASEURL; ?>/masyarakat/masuk">
               <div class="mb-5">
                 <h6 class="fw-bold text-muted mb-3">Silakan Login</h6>
-                <input type="email" class="form-control style-form" name="email" placeholder="Email" />
+                <input type="email" class="form-control style-form" name="email" placeholder="Email" required />
               </div>
               <div class="mb-5">
-                <input type="password" class="form-control style-form" name="password" placeholder="Password" />
+                <input type="password" class="form-control style-form" name="password" placeholder="Password" required />
               </div>
               <button type="submit" class="btn btn-orange shadow-sm border-3 py-1 px-4 mb-5 fw-bold text-white">Login</button>
               <p>Belum punya akun? <a href="<?= BASEURL; ?>/masyarakat/registrasi">Daftar disini</a></p>

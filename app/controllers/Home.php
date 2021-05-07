@@ -8,10 +8,14 @@ class Home extends Controller
             header("Location: " . BASEURL . "/masyarakat/login");
             exit;
         }
+        $data = $this->model('MintaTolong_model')->getAllData();
+        for ($i = 0; $i < count($data); $i++) {
+            $data[$i]['tags'] = explode(", ", $data[$i]['tags']);
+        }
         $this->view('templates/header');
         $this->view('templates/sidebar-beranda', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-beranda');
-        $this->view('home/index');
+        $this->view('home/index', $data);
     }
 
     public function mintaTolong()
