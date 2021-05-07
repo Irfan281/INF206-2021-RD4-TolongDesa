@@ -4,7 +4,6 @@ class Home extends Controller
 {
     public function index()
     {
-        session_start();
         if (!isset($_SESSION['login'])) {
             header("Location: " . BASEURL . "/masyarakat/login");
             exit;
@@ -17,7 +16,6 @@ class Home extends Controller
 
     public function mintaTolong()
     {
-        session_start();
         if (!isset($_SESSION['login'])) {
             header("Location: " . BASEURL . "/masyarakat/login");
             exit;
@@ -30,7 +28,6 @@ class Home extends Controller
 
     public function tambahForm()
     {
-        session_start();
         if (!isset($_SESSION['login'])) {
             header("Location: " . BASEURL . "/masyarakat/login");
             exit;
