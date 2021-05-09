@@ -17,16 +17,6 @@ class Masyarakat extends Controller
         $this->view('masyarakat/registrasi');
     }
 
-    public function login()
-    {
-        if (isset($_SESSION['login'])) {
-            header("Location: " . BASEURL . "/home");
-            exit;
-        }
-        $this->view('templates/header');
-        $this->view('masyarakat/login');
-    }
-
     public function tambah()
     {
         if ($this->model('Masyarakat_model')->cekEmail($_POST) > 0) {
@@ -43,11 +33,21 @@ class Masyarakat extends Controller
         exit;
     }
 
+    public function login()
+    {
+        if (isset($_SESSION['login'])) {
+            header("Location: " . BASEURL . "/home");
+            exit;
+        }
+        $this->view('templates/header');
+        $this->view('masyarakat/login');
+    }
+
     public function masuk()
     {
         if ($this->model('Masyarakat_model')->cekEmail($_POST) > 0) {
             if ($this->model('Masyarakat_model')->cekPassword($_POST) > 0) {
-                header('Location: ' . BASEURL . '/home/index');
+                header('Location: ' . BASEURL . '/home');
                 exit;
             }
         }
@@ -71,5 +71,14 @@ class Masyarakat extends Controller
 
     public function logout()
     {
+        if (!isset($_SESSION['login'])) {
+            header("Location: " . BASEURL . "/masyarakat/login");
+            exit;
+        }
+        $_SESSION = [];
+        session_unset();
+        session_destroy();
+        header("Location: " . BASEURL);
+        exit;
     }
 }

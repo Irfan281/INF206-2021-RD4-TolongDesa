@@ -62,7 +62,9 @@ function logout() {
     reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        // Jika tombol keluar ditekan, proses fungsi logout
+        popUpLogout.classList.remove('popup-logout');
+        popUpLogout.setAttribute('href', 'http://localhost/TolongDesa/public/masyarakat/logout');
+        popUpLogout.click();
       }
     }
   )
@@ -83,9 +85,16 @@ function logout() {
 const popUpRegistrasi = document.getElementsByClassName('popup-registrasi')[0];
 const popUpDomisili = document.getElementsByClassName('popup-domisili')[0];
 const popUpLogin = document.getElementsByClassName('popup-login')[0];
+const popUpLogout = document.getElementsByClassName('popup-logout')[0];
 
-if (popUpRegistrasi.dataset.popup_registrasi == false) {
-  daftargagal();
+if (popUpRegistrasi != undefined) {
+  if (popUpRegistrasi.dataset.popup_registrasi == false) {
+    daftargagal();
+  }
+  
+  if (popUpRegistrasi.dataset.popup_registrasi == true) {
+    daftarsukses();
+  }
 }
 
 if (popUpDomisili != undefined) {
@@ -97,12 +106,16 @@ if (popUpDomisili != undefined) {
   });
 }
 
-if (popUpRegistrasi.dataset.popup_registrasi == true) {
-  daftarsukses();
-}
-
 if (popUpLogin != undefined) {
   if (popUpLogin.dataset.popup_login == false) {
     logingagal();
   }
+}
+
+if (popUpLogout != undefined) {
+  popUpLogout.addEventListener('click', function() {
+    if(popUpLogout.classList.contains('popup-logout')){
+      logout();
+    }
+  });
 }
