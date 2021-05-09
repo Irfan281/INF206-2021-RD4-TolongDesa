@@ -1,5 +1,5 @@
     <!-- My CSS -->
-    <link rel="stylesheet" href="<?= BASEURL; ?>/css/login-daftar.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/login-daftar.css?v=<?php echo time(); ?>">
 
     <title>Login | TolongDesa</title>
     </head>
@@ -13,10 +13,9 @@
       <div class="d-flex align-items-center min-vh-100">
         <div class="container card-login">
           <div class="text-center">
-            <a href="<?= BASEURL; ?>/landingpage" style="text-decoration: none; color: inherit;">
-              <h2 class="fw-bold mb-5 pb-2">Tolong<span class="fw-normal">Desa</span></h2>
-            </a>
-
+            <h2 class="fw-bold mb-5 pb-2 logo">
+              <a href="<?= BASEURL; ?>/landingpage" style="text-decoration: none; color: inherit;">Tolong<span class="fw-normal">Desa</span></a>
+            </h2>
             <form class="px-5" method="POST" action="<?= BASEURL; ?>/masyarakat/masuk">
               <div class="mb-5">
                 <h6 class="fw-bold text-muted mb-3">Silakan Login</h6>
