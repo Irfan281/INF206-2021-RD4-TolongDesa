@@ -4,7 +4,9 @@
   <body>
     <!-- Sidebar -->
     <div class="sidebar d-none d-md-block">
-      <h4 class="fw-bold text-white text-center my-4">Tolong<span class="fw-normal">Desa</span></h4>
+      <h4 class="fw-bold text-white text-center my-4">
+        <a href="<?= BASEURL; ?>/home" style="text-decoration: none; color: inherit;">Tolong<span class="fw-normal">Desa</span></a>
+      </h4>
       <div class="ms-4 mb-4">
         <a class="btn btn-grey-hover text-white mt-4 btn-pd" href="<?= BASEURL; ?>/home"><i class="bx bxs-home-circle"></i>&emsp;&emsp;Beranda</a>
         <a class="btn btn-grey-hover text-white mt-4 btn-pd" href="<?= BASEURL; ?>/home/riwayat"><i class="bx bx-history"></i>&emsp;&emsp;Riwayat</a>
