@@ -3,12 +3,38 @@ body {
     background-position: top right;
     background-repeat: repeat;
     background-size: 95vmax;
-
-    overflow-x: hidden;
 }
 
 .peringkat {            
     background: #70E0AE;
     box-shadow: 2px 5px 14px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+}
+
+#kolomperingkat {
+    position: fixed;
+    margin-right: 3rem;
+    padding-bottom: 8rem;
+}
+
+@media (max-width: 992px) {
+    #kolomperingkat {
+        position: relative;
+        margin-left: 20rem;
+    }
+
+    #kolomcard{
+        margin-left: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #kolomperingkat {
+        position: relative;
+        margin-left: 3rem;
+    }
+
+    #kolomcard{
+        margin-left: 0rem;
+    }
 }

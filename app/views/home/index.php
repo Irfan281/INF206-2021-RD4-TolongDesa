@@ -1,24 +1,27 @@
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= BASEURL; ?>/css/beranda.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>/css/beranda.css?v=<?php echo time(); ?>">
 
     <title>Beranda | TolongDesa</title>
     </head>
 
     <body>
         <!-- Section Isi -->
-        <div class="row">
-            <div class="col-md-2 d-none d-md-block"></div>
-            <div class="col-md-7 col-12 ms-md-5 ms-0">
-                <h1 class="fw-bold text-center d-md-none d-block mt-5">Tolong<span class="fw-normal">Desa</span></h1>
-                <h1 class="mt-5 ms-5 ps-4 fw-bold">Desa Beurawe</h1>
-                <br>
-                <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white" style="float: right; margin-right: 5rem;" href="<?= BASEURL; ?>/home/mintatolong">Minta Tolong</a>
-                <br>
-                <?php foreach (array_reverse($data) as $card) : ?>
-                    <div class="container">
-                        <div class="card m-5 shadow" style="background: #F9F9FB; border: #F9F9FB; border-radius: 8px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 d-none d-md-block"></div>
+                <div id="kolomcard" class="col-lg-6 col-md-8 col-12">
+                    <h1 class="fw-bold text-center d-md-none d-block mt-5">Tolong<span class="fw-normal">Desa</span></h1>
+                    <h1 class="mt-5 fw-bold">Desa Beurawe</h1>
+                    <br>
+                    <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white" style="float: right;" href="<?= BASEURL; ?>/home/mintatolong">Minta Tolong</a>
+                    <br>
+                    <?php foreach (array_reverse($data) as $card) : ?>
+                        <div class="card my-5 shadow ms-1" style="background: #F9F9FB; border: #F9F9FB; border-radius: 8px;">
                             <div class="card-body m-3">
-                                <h5 class="card-title"><?= $card['judul']; ?></h5>
+                                <h5 class="card-title d-inline"><?= $card['judul']; ?></h5>
+                                <?php if ($card['nama'] == $_SESSION['nama']) : ?>
+                                    <span class="badge bg-danger fw-light" style="float: right;">Milik anda</span>
+                                <?php endif; ?>
                                 <h6 class="card-subtitle mt-2 text-muted">Deskripsi :</h6>
                                 <p class="card-text"><?= $card['deskripsi']; ?></p>
                                 <h6 class="card-subtitle mt-2 text-muted">Alamat :</h6>
@@ -31,45 +34,47 @@
                                     <div style="margin-left: 3.8em; padding-top: 0.4em">
                                         <p class="m-0 fw-normal"><?= $card['nama']; ?></p>
                                         <p class="d-inline fw-light mb-0"><?= $card['peran']; ?></p>
-                                        <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white me-0 me-lg-5" href="<?= BASEURL; ?>/home/menolong" style="float: right;">Tolong</a>
+                                        <?php if ($card['nama'] != $_SESSION['nama']) : ?>
+                                            <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white me-0 me-lg-3" href="<?= BASEURL; ?>/home/menolong" style="float: right;">Tolong</a>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-            <div class="col-md-2">
-                <div style="display : table; margin : auto; padding-bottom: 8rem;">
-                    <div class="container text-white peringkat py-4 px-4 mt-5">
-                        <p>Penolong Terbanyak</p>
-                        <table>
-                            <tr>
-                                <td>1 </td>
-                                <td>Mustafa Ariadi</td>
-                                <td>40</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Sultan Faris</td>
-                                <td>35</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Ibnu Ratma</td>
-                                <td>30</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Amirah Fatin</td>
-                                <td>23</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Azizi Shafa</td>
-                                <td>22</td>
-                            </tr>
-                        </table>
+                    <?php endforeach; ?>
+                </div>
+                <div class="col-lg-2">
+                    <div class="ms-xxl-5" id="kolomperingkat">
+                        <div class="container text-white peringkat py-4 px-xl-4 mt-5">
+                            <p>&emsp;Penolong Terbanyak</p>
+                            <table class="table table-borderless text-white">
+                                <tr>
+                                    <td>1 </td>
+                                    <td>Sulthan Zaidan Fauzi</td>
+                                    <td>40</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Sultan Faris</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Ibnu Ratma</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Amirah Fatin</td>
+                                    <td>23</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Azizi Shafa</td>
+                                    <td>22</td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
