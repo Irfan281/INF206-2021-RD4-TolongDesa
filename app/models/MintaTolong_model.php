@@ -41,4 +41,14 @@ class MintaTolong_model
 
         return $this->db->rowCount();
     }
+
+    public function setStatus($id_mintatolong, $status)
+    {
+        $this->db->query('UPDATE ' . $this->table . ' SET status=:status WHERE id_mintatolong=:id');
+        $this->db->bind('status', $status);
+        $this->db->bind('id', $id_mintatolong);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
