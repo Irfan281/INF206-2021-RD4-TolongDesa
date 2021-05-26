@@ -15,7 +15,7 @@
                     <br>
                     <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white" style="float: right;" href="<?= BASEURL; ?>/home/mintatolong">Minta Tolong</a>
                     <br>
-                    <?php for ($i = 0; $i <= count($data) - 1; $i++) : ?>
+                    <?php for ($i = 0; $i <= count($data) - 2; $i++) : ?>
                         <div class="card my-5 shadow ms-1" style="background: #F9F9FB; border: #F9F9FB; border-radius: 8px;">
                             <div class="card-body m-3">
                                 <h5 class="card-title d-inline"><?= $data[$i]['judul']; ?></h5>
@@ -48,31 +48,14 @@
                         <div class="container text-white peringkat py-4 px-xl-4 mt-5">
                             <p>&emsp;Penolong Terbanyak</p>
                             <table class="table table-borderless text-white">
-                                <tr>
-                                    <td>1 </td>
-                                    <td>Sulthan Zaidan Fauzi</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Sultan Faris</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Ibnu Ratma</td>
-                                    <td>30</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Amirah Fatin</td>
-                                    <td>23</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Azizi Shafa</td>
-                                    <td>22</td>
-                                </tr>
+                                <?php $j = 1; ?>
+                                <?php foreach ($data['data_poin'] as $peringkat) : ?>
+                                    <tr>
+                                        <td><?= $j++; ?></td>
+                                        <td><?= $peringkat['nama']; ?></td>
+                                        <td><?= $peringkat['poin']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </table>
                         </div>
                     </div>
