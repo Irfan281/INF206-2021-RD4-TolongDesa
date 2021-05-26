@@ -70,6 +70,90 @@ function logout() {
   )
 }
 
+//pop-up ketika ada orang tekan tombol "tolong"
+function konfirmasiMenolong() {
+  const swalWithBootstrapButtons2 = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success rounded-3 px-5 py-2',
+      cancelButton: 'btn btn-outline-secondary me-3 px-5 py-2'
+    },
+    buttonsStyling: false
+  })
+
+  swalWithBootstrapButtons2.fire({
+    title: 'Konfirmasi',
+    text: "Apakah kamu yakin untuk memberikan pertolongan ?",
+    showCancelButton: true,
+    confirmButtonText: 'Ya',
+    cancelButtonText: 'Tidak',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      //kalo iya, Proses agar si penolong jadi terdaftar
+
+      swalWithBootstrapButtons2.fire(
+        '',
+        'Kamu berhasil terdaftar sebagai penolong, yuk berikan pertolongan terbaikmu. Pertolonganmu akan tercatat jika peminta tolong telah mengkonfirmasi selesai.',
+        ''
+      )
+    }
+  })
+}
+
+//popup ketika ada orang tekan tombol "selesai" di riwayat
+function selesai() {
+  const swalWithBootstrapButtons3 = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success rounded-3 px-5 py-2',
+      cancelButton: 'btn btn-outline-secondary me-3 px-5 py-2'
+    },
+    buttonsStyling: false
+  })
+
+  swalWithBootstrapButtons3.fire({
+    title: 'Konfirmasi',
+    text: "Apabila kamu sudah mendapat pertolongan silakan untuk menekan tombol selesai. Pertolongan akan tercatat pada akun penolong",
+    showCancelButton: true,
+    confirmButtonText: 'Selesai',
+    cancelButtonText: 'Batal',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      //kalo iya, Proses agar minta tolong selesai
+
+    }
+  })
+}
+
+//popup ketika orang tekan tombol "tidak selesai" di riwayat
+function tidakselesai() {
+  const swalWithBootstrapButtons4 = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-danger rounded-3 px-5 py-2',
+      cancelButton: 'btn btn-secondary me-3 px-2 py-2'
+    },
+    buttonsStyling: false
+  })
+
+  swalWithBootstrapButtons4.fire({
+    title: 'Konfirmasi',
+    text: "Anda dapat memilih pertolongan ini tidak selesai atau mengajukan permintaan tolong kembali",
+    showCancelButton: true,
+    confirmButtonText: 'Tidak Selesai',
+    cancelButtonText: 'Minta Tolong Kembali',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      //set langsung jadi "Tidak Selesai"
+    } else if (result.isDenied) {
+      //kalo pilih minta tolong kembali. Tampilin lagi post minta tolongnya di beranda
+      //bestu set jadi "belum ada penolong"
+    }
+  })
+}
+
 // const popUp = document.getElementsByClassName('popup');
 // if (popUp[0].dataset.popup_registrasi == false) {
 //   daftargagal();
