@@ -25,8 +25,6 @@ class Masyarakat_model
 
     public function tambahDataMasyarakat($data)
     {
-        // TODO: cek email sudah terdaftar atau belum
-
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
         $query = "INSERT INTO $this->table VALUES ('', :nama, :alamat, :no_hp, :domisili, :email, :password, :peran, :poin)";

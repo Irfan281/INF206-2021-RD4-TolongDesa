@@ -12,8 +12,9 @@ class MintaTolong_model
 
     public function getAllData()
     {
-        $query = "SELECT id_mintatolong, ms.id_masyarakat, nama, peran, judul, deskripsi, mt.alamat, tags, status 
-                    FROM " . $this->table . " mt JOIN masyarakat ms ON mt.id_masyarakat = ms.id_masyarakat";
+        $query = "SELECT id_mintatolong, mt.id_masyarakat, nama, peran, judul, deskripsi, mt.alamat, tags, status 
+                    FROM " . $this->table . " mt JOIN masyarakat ms ON mt.id_masyarakat = ms.id_masyarakat
+                    ORDER BY id_mintatolong";
         $this->db->query($query);
         return $this->db->resultSet();
     }

@@ -2,12 +2,16 @@
 
 class Home extends Controller
 {
-    public function index()
+    public function __construct()
     {
         if (!isset($_SESSION['login'])) {
             header("Location: " . BASEURL . "/masyarakat/login");
             exit;
         }
+    }
+
+    public function index()
+    {
         $data = $this->model('MintaTolong_model')->getAllData();
         for ($i = 0; $i < count($data); $i++) {
             $data[$i]['tags'] = explode(", ", $data[$i]['tags']);
@@ -20,10 +24,6 @@ class Home extends Controller
 
     public function mintaTolong()
     {
-        if (!isset($_SESSION['login'])) {
-            header("Location: " . BASEURL . "/masyarakat/login");
-            exit;
-        }
         $this->view('templates/header');
         $this->view('templates/sidebar-kosong', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-kosong');
@@ -32,10 +32,6 @@ class Home extends Controller
 
     public function tambahForm()
     {
-        if (!isset($_SESSION['login'])) {
-            header("Location: " . BASEURL . "/masyarakat/login");
-            exit;
-        }
         if ($this->model('MintaTolong_model')->tambahData($_POST) > 0) {
             header('Location: ' . BASEURL . '/home');
             exit;
