@@ -71,7 +71,7 @@ function logout() {
 }
 
 //pop-up ketika ada orang tekan tombol "tolong"
-function konfirmasiMenolong() {
+function konfirmasiMenolong(popUp) {
   const swalWithBootstrapButtons2 = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-success rounded-3 px-5 py-2',
@@ -89,14 +89,19 @@ function konfirmasiMenolong() {
     reverseButtons: true
   }).then((result) => {
     if (result.isConfirmed) {
-
-      //kalo iya, Proses agar si penolong jadi terdaftar
-
+      
       swalWithBootstrapButtons2.fire(
         '',
         'Kamu berhasil terdaftar sebagai penolong, yuk berikan pertolongan terbaikmu. Pertolonganmu akan tercatat jika peminta tolong telah mengkonfirmasi selesai.',
         ''
-      )
+      ).then(function() {
+        //kalo iya, Proses agar si penolong jadi terdaftar
+        const id_mintatolong = popUp.dataset.id_mintatolong;
+        popUp.classList.remove('popup-tolong');
+        popUp.setAttribute('href', `http://localhost/TolongDesa/public/home/menolong/${id_mintatolong}`);
+        popUp.click();
+      })
+    
     }
   })
 }
@@ -154,22 +159,11 @@ function tidakselesai() {
   })
 }
 
-// const popUp = document.getElementsByClassName('popup');
-// if (popUp[0].dataset.popup_registrasi == false) {
-//   daftargagal();
-// }
-// if (popUp[0].dataset.popup_registrasi == true) {
-//   daftarsukses();
-// }
-// if (popUp[1] != undefined) {
-//   if (popUp[1].dataset.popup_login == false) {
-//     logingagal();
-//   }
-// }
 const popUpRegistrasi = document.getElementsByClassName('popup-registrasi')[0];
 const popUpDomisili = document.getElementsByClassName('popup-domisili')[0];
 const popUpLogin = document.getElementsByClassName('popup-login')[0];
 const popUpLogout = document.getElementsByClassName('popup-logout')[0];
+const popUpTolong = document.getElementsByClassName('popup-tolong');
 
 if (popUpRegistrasi != undefined) {
   if (popUpRegistrasi.dataset.popup_registrasi == false) {
@@ -202,4 +196,14 @@ if (popUpLogout != undefined) {
       logout();
     }
   });
+}
+
+if (popUpTolong != undefined) {
+  for (let popUp of popUpTolong) {
+    popUp.addEventListener('click', function() {
+      if(popUp.classList.contains('popup-tolong')){
+        konfirmasiMenolong(popUp);
+      }
+    });
+  }
 }
