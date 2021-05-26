@@ -13,7 +13,8 @@ class MintaTolong_model
     public function getAllData()
     {
         $query = "SELECT id_mintatolong, ms.id_masyarakat, nama, peran, judul, deskripsi, mt.alamat, tags, status 
-                    FROM " . $this->table . " mt JOIN masyarakat ms ON mt.id_masyarakat = ms.id_masyarakat";
+                    FROM " . $this->table . " mt JOIN masyarakat ms ON mt.id_masyarakat = ms.id_masyarakat
+                    WHERE status = 1 ORDER BY id_mintatolong DESC";
         $this->db->query($query);
         return $this->db->resultSet();
     }
@@ -36,6 +37,16 @@ class MintaTolong_model
         $this->db->bind('alamat', $data['alamat']);
         $this->db->bind('tags', $tags);
         $this->db->bind('status', true);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function setStatus($id_mintatolong, $status)
+    {
+        $this->db->query('UPDATE ' . $this->table . ' SET status=:status WHERE id_mintatolong=:id');
+        $this->db->bind('status', $status);
+        $this->db->bind('id', $id_mintatolong);
         $this->db->execute();
 
         return $this->db->rowCount();

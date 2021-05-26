@@ -15,33 +15,33 @@
                     <br>
                     <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white" style="float: right;" href="<?= BASEURL; ?>/home/mintatolong">Minta Tolong</a>
                     <br>
-                    <?php foreach (array_reverse($data) as $card) : ?>
+                    <?php for ($i = 0; $i <= count($data) - 1; $i++) : ?>
                         <div class="card my-5 shadow ms-1" style="background: #F9F9FB; border: #F9F9FB; border-radius: 8px;">
                             <div class="card-body m-3">
-                                <h5 class="card-title d-inline"><?= $card['judul']; ?></h5>
-                                <?php if ($card['nama'] == $_SESSION['nama']) : ?>
+                                <h5 class="card-title d-inline"><?= $data[$i]['judul']; ?></h5>
+                                <?php if ($data[$i]['nama'] == $_SESSION['nama']) : ?>
                                     <span class="badge bg-danger fw-light" style="float: right;">Milik anda</span>
                                 <?php endif; ?>
                                 <h6 class="card-subtitle mt-2 text-muted">Deskripsi :</h6>
-                                <p class="card-text"><?= $card['deskripsi']; ?></p>
+                                <p class="card-text"><?= $data[$i]['deskripsi']; ?></p>
                                 <h6 class="card-subtitle mt-2 text-muted">Alamat :</h6>
-                                <p class="card-text"><?= $card['alamat']; ?></p>
-                                <span class="badge bg-secondary"><?= $card['tags'][0]; ?></span>
-                                <span class="badge bg-secondary"><?= $card['tags'][1]; ?></span>
-                                <span class="badge bg-secondary"><?= $card['tags'][2]; ?></span>
+                                <p class="card-text"><?= $data[$i]['alamat']; ?></p>
+                                <span class="badge bg-secondary"><?= $data[$i]['tags'][0]; ?></span>
+                                <span class="badge bg-secondary"><?= $data[$i]['tags'][1]; ?></span>
+                                <span class="badge bg-secondary"><?= $data[$i]['tags'][2]; ?></span>
                                 <div class="mt-4">
                                     <img class="position-absolute img-fluid" src="<?= BASEURL; ?>/assets/foto1.png" alt="foto1" width="50" height="50" />
                                     <div style="margin-left: 3.8em; padding-top: 0.4em">
-                                        <p class="m-0 fw-normal"><?= $card['nama']; ?></p>
-                                        <p class="d-inline fw-light mb-0"><?= $card['peran']; ?></p>
-                                        <?php if ($card['nama'] != $_SESSION['nama']) : ?>
-                                            <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white me-0 me-lg-3" href="<?= BASEURL; ?>/home/menolong" style="float: right;">Tolong</a>
+                                        <p class="m-0 fw-normal"><?= $data[$i]['nama']; ?></p>
+                                        <p class="d-inline fw-light mb-0"><?= $data[$i]['peran']; ?></p>
+                                        <?php if ($data[$i]['nama'] != $_SESSION['nama']) : ?>
+                                            <a data-id_mintatolong="<?= $data[$i]['id_mintatolong']; ?>" class=" btn btn-success shadow-sm py-1 px-4 fw-bold text-white me-0 me-lg-3 popup-tolong" style="float: right;">Tolong</a>
                                         <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endfor; ?>
                 </div>
                 <div class="col-lg-2">
                     <div class="ms-xxl-5" id="kolomperingkat">
@@ -80,7 +80,9 @@
             </div>
         </div>
         <!-- Akhir Section Isi -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script src="<?= BASEURL; ?>/js/pop-up.js"></script>
     </body>
 
     </html>
