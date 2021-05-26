@@ -16,6 +16,7 @@ class Home extends Controller
         for ($i = 0; $i <= count($data) - 1; $i++) {
             $data[$i]['tags'] = explode(", ", $data[$i]['tags']);
         }
+        $data['data_poin'] = $this->model('Masyarakat_model')->getOrderedPoin();
         $this->view('templates/header');
         $this->view('templates/sidebar-beranda', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-beranda');

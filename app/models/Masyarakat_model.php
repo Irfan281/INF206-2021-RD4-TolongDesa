@@ -66,4 +66,10 @@ class Masyarakat_model
             return false;
         }
     }
+
+    public function getOrderedPoin()
+    {
+        $this->db->query('SELECT nama, poin FROM ' . $this->table . ' ORDER BY poin DESC, nama ASC LIMIT 5');
+        return $this->db->resultSet();
+    }
 }

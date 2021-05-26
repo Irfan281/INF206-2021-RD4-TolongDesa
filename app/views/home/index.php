@@ -15,7 +15,7 @@
                     <br>
                     <a class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white" style="float: right;" href="<?= BASEURL; ?>/home/mintatolong">Minta Tolong</a>
                     <br>
-                    <?php for ($i = 0; $i <= count($data) - 1; $i++) : ?>
+                    <?php for ($i = 0; $i <= count($data) - 2; $i++) : ?>
                         <div class="card my-5 shadow ms-1" style="background: #F9F9FB; border: #F9F9FB; border-radius: 8px;">
                             <div class="card-body m-3">
                                 <h5 class="card-title d-inline"><?= $data[$i]['judul']; ?></h5>
