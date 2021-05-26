@@ -48,31 +48,14 @@
                         <div class="container text-white peringkat py-4 px-xl-4 mt-5">
                             <p>&emsp;Penolong Terbanyak</p>
                             <table class="table table-borderless text-white">
-                                <tr>
-                                    <td>1 </td>
-                                    <td>Sulthan Zaidan Fauzi</td>
-                                    <td>40</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Sultan Faris</td>
-                                    <td>35</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Ibnu Ratma</td>
-                                    <td>30</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Amirah Fatin</td>
-                                    <td>23</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Azizi Shafa</td>
-                                    <td>22</td>
-                                </tr>
+                                <?php $j = 1; ?>
+                                <?php foreach ($data['data_poin'] as $peringkat) : ?>
+                                    <tr>
+                                        <td><?= $j++; ?></td>
+                                        <td><?= $peringkat['nama']; ?></td>
+                                        <td><?= $peringkat['poin']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </table>
                         </div>
                     </div>
