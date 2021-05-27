@@ -41,12 +41,15 @@ class Home extends Controller
         }
     }
 
-    public function detail()
+    public function detail($id_mintatolong)
     {
+        $data = $this->model('MintaTolong_model')->getDataById($id_mintatolong);
+        $data['tags'] = explode(", ", $data['tags']);
+        $data['penolong'] = $this->model('Menolong_model')->getPenolong($id_mintatolong)['penolong'];
         $this->view('templates/header');
         $this->view('templates/sidebar-kosong', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-kosong');
-        $this->view('home/detail');
+        $this->view('home/detail', $data);
     }
 
     public function riwayat()
@@ -62,7 +65,7 @@ class Home extends Controller
     {
         if ($this->model('Menolong_model')->tambahData($id_mintatolong, $_SESSION["id"]) > 0) {
             if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 0) > 0) {
-                header('Location: ' . BASEURL . '/home');
+                header('Location: ' . BASEURL . '/home/detail/' . $id_mintatolong);
                 exit;
             }
         }

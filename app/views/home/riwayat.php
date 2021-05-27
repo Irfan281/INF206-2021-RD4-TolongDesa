@@ -45,14 +45,14 @@
 
                 <h1 class="fw-bold mt-5 ms-md-5 ms-0">Desa Beurawe</h1>
                 <br>
-                
+
                 <h2 class="fw-normal ms-md-5 ms-0">Daftar kamu minta tolong</h2>
                 <!-- 
                     Kombinasi tampilannya :
-                       - judul, belum ada penolong
-                       - judul, nama penolong, tombol tidak selesai & selesai
-                       - judul, nama penolong, tidak selesai
-                       - - judul, nama penolong, selesai
+                       - judul, belum ada penolong -> belum
+                       - judul, nama penolong, tombol tidak selesai & selesai -> proses
+                       - judul, nama penolong, tidak selesai -> tidak
+                       - - judul, nama penolong, selesai -> selesai
                  -->
                 <div class="container card-style ms-md-5 ms-0 mb-3">
                     <div class="row">
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-     
+
                 <h2 class="fw-normal ms-md-5 ms-0 mt-5">Daftar kamu memberi pertolongan</h2>
                 <!-- 
                     Kombinasi tampilannya :

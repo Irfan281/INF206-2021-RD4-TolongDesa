@@ -21,7 +21,10 @@ class MintaTolong_model
 
     public function getDataById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_mintatolong=:id');
+        $query = "SELECT nama, peran, judul, deskripsi, mt.alamat, tags, status 
+                    FROM " . $this->table . " mt JOIN masyarakat ms ON mt.id_masyarakat = ms.id_masyarakat
+                    WHERE id_mintatolong=:id";
+        $this->db->query($query);
         $this->db->bind('id', $id);
         return $this->db->single();
     }

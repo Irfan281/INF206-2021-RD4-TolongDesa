@@ -20,4 +20,13 @@ class Menolong_model
 
         return $this->db->rowCount();
     }
+
+    public function getPenolong($id_mintatolong)
+    {
+        $query = "SELECT nama AS penolong FROM " . $this->table . " mn JOIN masyarakat ms ON mn.id_masyarakat = ms.id_masyarakat
+                    WHERE id_mintatolong=:id_mintatolong";
+        $this->db->query($query);
+        $this->db->bind('id_mintatolong', $id_mintatolong);
+        return $this->db->single();
+    }
 }

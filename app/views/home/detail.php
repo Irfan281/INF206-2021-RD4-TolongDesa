@@ -23,19 +23,19 @@
 
                 <div class="card my-5 shadow ms-md-5 ms-0" style="background: #F9F9FB; border: #F9F9FB; border-radius: 8px;">
                     <div class="card-body m-3">
-                        <h5 class="card-title d-inline">Judul Pertolongan</h5>
+                        <h5 class="card-title d-inline"><?= $data["judul"]; ?></h5>
                         <h6 class="card-subtitle mt-2 text-muted">Deskripsi :</h6>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus commodi hic vero eos facere debitis. Architecto, veritatis nisi sed neque alias, eaque similique sequi facere quisquam unde rem tempore iste.</p>
+                        <p class="card-text"><?= $data["deskripsi"]; ?></p>
                         <h6 class="card-subtitle mt-2 text-muted">Alamat :</h6>
-                        <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus quis ad doloribus sint dolor cum accusantium odio recusandae vero id dolores magni, aut iusto laborum ea, labore magnam voluptas quaerat.</p>
-                        <span class="badge bg-secondary">tags 1</span>
-                        <span class="badge bg-secondary">tags 2</span>
-                        <span class="badge bg-secondary">tags 3</span>
+                        <p class="card-text"><?= $data["alamat"]; ?></p>
+                        <span class="badge bg-secondary"><?= $data["tags"][0]; ?></span>
+                        <span class="badge bg-secondary"><?= $data["tags"][1]; ?></span>
+                        <span class="badge bg-secondary"><?= $data["tags"][2]; ?></span>
                         <div class="mt-4">
                             <img class="position-absolute img-fluid" src="<?= BASEURL; ?>/assets/foto1.png" alt="foto1" width="50" height="50" />
                             <div style="margin-left: 3.8em; padding-top: 0.4em">
-                                <p class="m-0 fw-normal">nama</p>
-                                <p class="d-inline fw-light mb-0">masyarakat</p>
+                                <p class="m-0 fw-normal"><?= $data["nama"]; ?></p>
+                                <p class="d-inline fw-light mb-0"><?= $data["peran"]; ?></p>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@
 
                 <div class="mt-3 ms-md-5 ms-0">
                     <h3 class="fw-bold">Penolong</h3>
-                    <button type="button" class="btn btn-outline-success rounded-pill mt-md-3 fw-bold" disabled>Nama Penolongg</button>
+                    <button type="button" class="btn btn-outline-success rounded-pill mt-md-3 fw-bold" disabled><?= $data["penolong"]; ?></button>
                 </div>
 
             </div>
