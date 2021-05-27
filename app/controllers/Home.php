@@ -54,7 +54,12 @@ class Home extends Controller
 
     public function riwayat()
     {
-        $data = $this->model('Masyarakat_model')->getMasyarakatById($_SESSION['id']);
+        $data['minta_tolong'] = $this->model('Mintatolong_model')->getRiwayat($_SESSION['id']);
+        for ($i = 0; $i <= count($data['minta_tolong']) - 1; $i++) {
+            if ($data['minta_tolong'][$i]['status'] != 'belum') {
+                $data['minta_tolong'][$i]['penolong'] = $this->model('Menolong_model')->getPenolong($data['minta_tolong'][$i]['id_mintatolong'])['penolong'];
+            }
+        }
         $this->view('templates/header');
         $this->view('templates/sidebar-riwayat', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-riwayat');

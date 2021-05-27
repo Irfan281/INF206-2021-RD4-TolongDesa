@@ -54,4 +54,12 @@ class MintaTolong_model
 
         return $this->db->rowCount();
     }
+
+    public function getRiwayat($id)
+    {
+        $query = "SELECT id_mintatolong, judul, status FROM " . $this->table . " WHERE id_masyarakat=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->resultSet();
+    }
 }
