@@ -60,6 +60,7 @@ class Home extends Controller
                 $data['minta_tolong'][$i]['penolong'] = $this->model('Menolong_model')->getPenolong($data['minta_tolong'][$i]['id_mintatolong'])['penolong'];
             }
         }
+        $data['menolong'] = $this->model('Menolong_model')->getRiwayat($_SESSION['id']);
         $this->view('templates/header');
         $this->view('templates/sidebar-riwayat', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-riwayat');

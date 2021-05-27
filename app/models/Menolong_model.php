@@ -29,4 +29,14 @@ class Menolong_model
         $this->db->bind('id_mintatolong', $id_mintatolong);
         return $this->db->single();
     }
+
+    public function getRiwayat($id)
+    {
+        $query = "SELECT mt.id_mintatolong, judul, status 
+                    FROM " . $this->table . " mn JOIN mintatolong mt ON mt.id_mintatolong = mn.id_mintatolong
+                    WHERE mn.id_masyarakat=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->resultSet();
+    }
 }
