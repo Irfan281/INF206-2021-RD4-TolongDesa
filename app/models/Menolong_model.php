@@ -23,7 +23,7 @@ class Menolong_model
 
     public function getPenolong($id_mintatolong)
     {
-        $query = "SELECT nama AS penolong FROM " . $this->table . " mn JOIN masyarakat ms ON mn.id_masyarakat = ms.id_masyarakat
+        $query = "SELECT mn.id_masyarakat AS id_penolong, nama AS penolong FROM " . $this->table . " mn JOIN masyarakat ms ON mn.id_masyarakat = ms.id_masyarakat
                     WHERE id_mintatolong=:id_mintatolong";
         $this->db->query($query);
         $this->db->bind('id_mintatolong', $id_mintatolong);

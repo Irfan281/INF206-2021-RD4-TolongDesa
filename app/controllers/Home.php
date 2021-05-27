@@ -57,7 +57,9 @@ class Home extends Controller
         $data['minta_tolong'] = $this->model('Mintatolong_model')->getRiwayat($_SESSION['id']);
         for ($i = 0; $i <= count($data['minta_tolong']) - 1; $i++) {
             if ($data['minta_tolong'][$i]['status'] != 'belum') {
-                $data['minta_tolong'][$i]['penolong'] = $this->model('Menolong_model')->getPenolong($data['minta_tolong'][$i]['id_mintatolong'])['penolong'];
+                $temp = $this->model('Menolong_model')->getPenolong($data['minta_tolong'][$i]['id_mintatolong']);
+                $data['minta_tolong'][$i]['id_penolong'] = $temp['id_penolong'];
+                $data['minta_tolong'][$i]['penolong'] = $temp['penolong'];
             }
         }
         $data['menolong'] = $this->model('Menolong_model')->getRiwayat($_SESSION['id']);

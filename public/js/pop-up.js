@@ -127,7 +127,11 @@ function selesai() {
     if (result.isConfirmed) {
 
       //kalo iya, Proses agar minta tolong selesai
-
+      const id_mintatolong = popUpSelesai.dataset.id_mintatolong;
+      const id_penolong = popUpSelesai.dataset.id_penolong;
+      popUpSelesai.classList.remove('popup-selesai');
+      popUpSelesai.setAttribute('href', `http://localhost/TolongDesa/public/home/tolongselesai/${id_mintatolong}/${id_penolong}`);
+      popUpSelesai.click();
     }
   })
 }
@@ -164,6 +168,8 @@ const popUpDomisili = document.getElementsByClassName('popup-domisili')[0];
 const popUpLogin = document.getElementsByClassName('popup-login')[0];
 const popUpLogout = document.getElementsByClassName('popup-logout')[0];
 const popUpTolong = document.getElementsByClassName('popup-tolong');
+const popUpSelesai = document.getElementsByClassName('popup-selesai')[0];
+const popUpTidakSelesai = document.getElementsByClassName('popup-tidak_selesai')[0];
 
 if (popUpRegistrasi != undefined) {
   if (popUpRegistrasi.dataset.popup_registrasi == false) {
@@ -206,4 +212,20 @@ if (popUpTolong != undefined) {
       }
     });
   }
+}
+
+if (popUpSelesai != undefined) {
+  popUpSelesai.addEventListener('click', function() {
+    if(popUpSelesai.classList.contains('popup-selesai')){
+      selesai();
+    }
+  });
+}
+
+if (popUpTidakSelesai != undefined) {
+  popUpTidakSelesai.addEventListener('click', function() {
+    if(popUpTidakSelesai.classList.contains('popup-tidak_selesai')){
+      tidakselesai();
+    }
+  });
 }

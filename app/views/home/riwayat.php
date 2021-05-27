@@ -70,8 +70,8 @@
                             <div class="col-md-4">
                                 <?php if ($mt['status'] == 'proses') : ?>
                                     <div class="mt-3 text-end mb-3">
-                                        <button type="button" class="btn btn-orange text-white px-4 mb-1">Selesai</button>
-                                        <button type="button" class="btn btn-outline-orange px-4 mb-1">Tidak Selesai</button>
+                                        <a data-id_mintatolong="<?= $mt['id_mintatolong']; ?>" data-id_penolong="<?= $mt['id_penolong']; ?>" type="button" class="btn btn-orange text-white px-4 mb-1 popup-selesai">Selesai</a>
+                                        <button type="button" class="btn btn-outline-orange px-4 mb-1 popup-tidak_selesai">Tidak Selesai</button>
                                     </div>
                                 <?php elseif ($mt['status'] == 'selesai') : ?>
                                     <h6 class="card-title text-muted mt-4 text-center mb-4">Selesai</h6>
