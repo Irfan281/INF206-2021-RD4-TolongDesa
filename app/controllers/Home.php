@@ -78,4 +78,14 @@ class Home extends Controller
             }
         }
     }
+
+    public function tolongSelesai($id_mintatolong, $id_penolong)
+    {
+        if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 'selesai') > 0) {
+            if ($this->model('Masyarakat_model')->setPoin($id_penolong) > 0) {
+                header('Location: ' . BASEURL . '/home/riwayat');
+                exit;
+            }
+        }
+    }
 }
