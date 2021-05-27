@@ -14,7 +14,7 @@ class MintaTolong_model
     {
         $query = "SELECT id_mintatolong, ms.id_masyarakat, nama, peran, judul, deskripsi, mt.alamat, tags, status 
                     FROM " . $this->table . " mt JOIN masyarakat ms ON mt.id_masyarakat = ms.id_masyarakat
-                    WHERE status = 1 ORDER BY id_mintatolong DESC";
+                    WHERE status = 'belum' ORDER BY id_mintatolong DESC";
         $this->db->query($query);
         return $this->db->resultSet();
     }
@@ -39,7 +39,7 @@ class MintaTolong_model
         $this->db->bind('deskripsi', $data['deskripsi']);
         $this->db->bind('alamat', $data['alamat']);
         $this->db->bind('tags', $tags);
-        $this->db->bind('status', true);
+        $this->db->bind('status', 'belum');
         $this->db->execute();
 
         return $this->db->rowCount();

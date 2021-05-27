@@ -64,7 +64,7 @@ class Home extends Controller
     public function menolong($id_mintatolong)
     {
         if ($this->model('Menolong_model')->tambahData($id_mintatolong, $_SESSION["id"]) > 0) {
-            if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 0) > 0) {
+            if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 'proses') > 0) {
                 header('Location: ' . BASEURL . '/home/detail/' . $id_mintatolong);
                 exit;
             }
