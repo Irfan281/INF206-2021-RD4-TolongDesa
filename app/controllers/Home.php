@@ -88,4 +88,21 @@ class Home extends Controller
             }
         }
     }
+
+    public function tolongTidakSelesai($id_mintatolong, $id_penolong, $condition)
+    {
+        if ($condition == 'true') {
+            if ($this->model('Menolong_model')->hapusData($id_mintatolong, $id_penolong) > 0) {
+                if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 'belum') > 0) {
+                    header('Location: ' . BASEURL . '/home/riwayat');
+                    exit;
+                }
+            }
+        } elseif ($condition == 'false') {
+            if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 'tidak') > 0) {
+                header('Location: ' . BASEURL . '/home/riwayat');
+                exit;
+            }
+        }
+    }
 }

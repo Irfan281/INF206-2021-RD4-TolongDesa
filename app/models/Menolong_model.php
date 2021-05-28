@@ -39,4 +39,15 @@ class Menolong_model
         $this->db->bind('id', $id);
         return $this->db->resultSet();
     }
+
+    public function hapusData($id_mintatolong, $id_penolong)
+    {
+        $query = "DELETE FROM $this->table WHERE id_masyarakat=:id_masyarakat AND id_mintatolong=:id_mintatolong";
+        $this->db->query($query);
+        $this->db->bind('id_masyarakat', $id_penolong);
+        $this->db->bind('id_mintatolong', $id_mintatolong);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }
