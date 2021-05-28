@@ -141,7 +141,7 @@ function tidakselesai() {
   const swalWithBootstrapButtons4 = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-danger rounded-3 px-5 py-2',
-      cancelButton: 'btn btn-secondary me-3 px-2 py-2'
+      denyButton: 'btn btn-secondary me-3 px-2 py-2'
     },
     buttonsStyling: false
   })
@@ -149,16 +149,24 @@ function tidakselesai() {
   swalWithBootstrapButtons4.fire({
     title: 'Konfirmasi',
     text: "Anda dapat memilih pertolongan ini tidak selesai atau mengajukan permintaan tolong kembali",
-    showCancelButton: true,
+    showDenyButton: true,
     confirmButtonText: 'Tidak Selesai',
-    cancelButtonText: 'Minta Tolong Kembali',
+    denyButtonText: 'Minta Tolong Kembali',
     reverseButtons: true
   }).then((result) => {
+    const id_mintatolong = popUpTidakSelesai.dataset.id_mintatolong;
+    const id_penolong = popUpTidakSelesai.dataset.id_penolong;
     if (result.isConfirmed) {
       //set langsung jadi "Tidak Selesai"
+      popUpTidakSelesai.classList.remove('popup-tidak_selesai');
+      popUpTidakSelesai.setAttribute('href', `http://localhost/TolongDesa/public/home/tolongtidakselesai/${id_mintatolong}/${id_penolong}/false`);
+      popUpTidakSelesai.click();
     } else if (result.isDenied) {
       //kalo pilih minta tolong kembali. Tampilin lagi post minta tolongnya di beranda
       //bestu set jadi "belum ada penolong"
+      popUpTidakSelesai.classList.remove('popup-tidak_selesai');
+      popUpTidakSelesai.setAttribute('href', `http://localhost/TolongDesa/public/home/tolongtidakselesai/${id_mintatolong}/${id_penolong}/true`);
+      popUpTidakSelesai.click();
     }
   })
 }
