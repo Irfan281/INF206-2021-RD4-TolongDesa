@@ -72,4 +72,13 @@ class Masyarakat_model
         $this->db->query('SELECT nama, poin FROM ' . $this->table . ' ORDER BY poin DESC, nama ASC LIMIT 5');
         return $this->db->resultSet();
     }
+
+    public function setPoin($id)
+    {
+        $this->db->query("UPDATE " . $this->table . " SET poin = poin + 1 WHERE id_masyarakat=:id");
+        $this->db->bind('id', $id);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
 }

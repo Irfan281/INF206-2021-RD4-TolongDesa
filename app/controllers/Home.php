@@ -41,17 +41,28 @@ class Home extends Controller
         }
     }
 
-    public function detail()
+    public function detail($id_mintatolong)
     {
+        $data = $this->model('MintaTolong_model')->getDataById($id_mintatolong);
+        $data['tags'] = explode(", ", $data['tags']);
+        $data['penolong'] = $this->model('Menolong_model')->getPenolong($id_mintatolong)['penolong'];
         $this->view('templates/header');
         $this->view('templates/sidebar-kosong', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-kosong');
-        $this->view('home/detail');
+        $this->view('home/detail', $data);
     }
 
     public function riwayat()
     {
-        $data = $this->model('Masyarakat_model')->getMasyarakatById($_SESSION['id']);
+        $data['minta_tolong'] = $this->model('Mintatolong_model')->getRiwayat($_SESSION['id']);
+        for ($i = 0; $i <= count($data['minta_tolong']) - 1; $i++) {
+            if ($data['minta_tolong'][$i]['status'] != 'belum') {
+                $temp = $this->model('Menolong_model')->getPenolong($data['minta_tolong'][$i]['id_mintatolong']);
+                $data['minta_tolong'][$i]['id_penolong'] = $temp['id_penolong'];
+                $data['minta_tolong'][$i]['penolong'] = $temp['penolong'];
+            }
+        }
+        $data['menolong'] = $this->model('Menolong_model')->getRiwayat($_SESSION['id']);
         $this->view('templates/header');
         $this->view('templates/sidebar-riwayat', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-riwayat');
@@ -61,8 +72,35 @@ class Home extends Controller
     public function menolong($id_mintatolong)
     {
         if ($this->model('Menolong_model')->tambahData($id_mintatolong, $_SESSION["id"]) > 0) {
-            if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 0) > 0) {
-                header('Location: ' . BASEURL . '/home');
+            if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 'proses') > 0) {
+                header('Location: ' . BASEURL . '/home/detail/' . $id_mintatolong);
+                exit;
+            }
+        }
+    }
+
+    public function tolongSelesai($id_mintatolong, $id_penolong)
+    {
+        if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 'selesai') > 0) {
+            if ($this->model('Masyarakat_model')->setPoin($id_penolong) > 0) {
+                header('Location: ' . BASEURL . '/home/riwayat');
+                exit;
+            }
+        }
+    }
+
+    public function tolongTidakSelesai($id_mintatolong, $id_penolong, $condition)
+    {
+        if ($condition == 'true') {
+            if ($this->model('Menolong_model')->hapusData($id_mintatolong, $id_penolong) > 0) {
+                if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 'belum') > 0) {
+                    header('Location: ' . BASEURL . '/home/riwayat');
+                    exit;
+                }
+            }
+        } elseif ($condition == 'false') {
+            if ($this->model('MintaTolong_model')->setStatus($id_mintatolong, 'tidak') > 0) {
+                header('Location: ' . BASEURL . '/home/riwayat');
                 exit;
             }
         }

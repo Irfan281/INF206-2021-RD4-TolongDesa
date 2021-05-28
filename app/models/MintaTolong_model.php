@@ -14,14 +14,17 @@ class MintaTolong_model
     {
         $query = "SELECT id_mintatolong, ms.id_masyarakat, nama, peran, judul, deskripsi, mt.alamat, tags, status 
                     FROM " . $this->table . " mt JOIN masyarakat ms ON mt.id_masyarakat = ms.id_masyarakat
-                    WHERE status = 1 ORDER BY id_mintatolong DESC";
+                    WHERE status = 'belum' ORDER BY id_mintatolong DESC";
         $this->db->query($query);
         return $this->db->resultSet();
     }
 
     public function getDataById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_mintatolong=:id');
+        $query = "SELECT nama, peran, judul, deskripsi, mt.alamat, tags, status 
+                    FROM " . $this->table . " mt JOIN masyarakat ms ON mt.id_masyarakat = ms.id_masyarakat
+                    WHERE id_mintatolong=:id";
+        $this->db->query($query);
         $this->db->bind('id', $id);
         return $this->db->single();
     }
@@ -36,7 +39,7 @@ class MintaTolong_model
         $this->db->bind('deskripsi', $data['deskripsi']);
         $this->db->bind('alamat', $data['alamat']);
         $this->db->bind('tags', $tags);
-        $this->db->bind('status', true);
+        $this->db->bind('status', 'belum');
         $this->db->execute();
 
         return $this->db->rowCount();
@@ -50,5 +53,13 @@ class MintaTolong_model
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function getRiwayat($id)
+    {
+        $query = "SELECT id_mintatolong, judul, status FROM " . $this->table . " WHERE id_masyarakat=:id";
+        $this->db->query($query);
+        $this->db->bind('id', $id);
+        return $this->db->resultSet();
     }
 }

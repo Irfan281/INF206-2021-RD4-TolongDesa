@@ -127,7 +127,11 @@ function selesai() {
     if (result.isConfirmed) {
 
       //kalo iya, Proses agar minta tolong selesai
-
+      const id_mintatolong = popUpSelesai.dataset.id_mintatolong;
+      const id_penolong = popUpSelesai.dataset.id_penolong;
+      popUpSelesai.classList.remove('popup-selesai');
+      popUpSelesai.setAttribute('href', `http://localhost/TolongDesa/public/home/tolongselesai/${id_mintatolong}/${id_penolong}`);
+      popUpSelesai.click();
     }
   })
 }
@@ -137,7 +141,7 @@ function tidakselesai() {
   const swalWithBootstrapButtons4 = Swal.mixin({
     customClass: {
       confirmButton: 'btn btn-danger rounded-3 px-5 py-2',
-      cancelButton: 'btn btn-secondary me-3 px-2 py-2'
+      denyButton: 'btn btn-secondary me-3 px-2 py-2'
     },
     buttonsStyling: false
   })
@@ -145,16 +149,24 @@ function tidakselesai() {
   swalWithBootstrapButtons4.fire({
     title: 'Konfirmasi',
     text: "Anda dapat memilih pertolongan ini tidak selesai atau mengajukan permintaan tolong kembali",
-    showCancelButton: true,
+    showDenyButton: true,
     confirmButtonText: 'Tidak Selesai',
-    cancelButtonText: 'Minta Tolong Kembali',
+    denyButtonText: 'Minta Tolong Kembali',
     reverseButtons: true
   }).then((result) => {
+    const id_mintatolong = popUpTidakSelesai.dataset.id_mintatolong;
+    const id_penolong = popUpTidakSelesai.dataset.id_penolong;
     if (result.isConfirmed) {
       //set langsung jadi "Tidak Selesai"
+      popUpTidakSelesai.classList.remove('popup-tidak_selesai');
+      popUpTidakSelesai.setAttribute('href', `http://localhost/TolongDesa/public/home/tolongtidakselesai/${id_mintatolong}/${id_penolong}/false`);
+      popUpTidakSelesai.click();
     } else if (result.isDenied) {
       //kalo pilih minta tolong kembali. Tampilin lagi post minta tolongnya di beranda
       //bestu set jadi "belum ada penolong"
+      popUpTidakSelesai.classList.remove('popup-tidak_selesai');
+      popUpTidakSelesai.setAttribute('href', `http://localhost/TolongDesa/public/home/tolongtidakselesai/${id_mintatolong}/${id_penolong}/true`);
+      popUpTidakSelesai.click();
     }
   })
 }
@@ -164,6 +176,8 @@ const popUpDomisili = document.getElementsByClassName('popup-domisili')[0];
 const popUpLogin = document.getElementsByClassName('popup-login')[0];
 const popUpLogout = document.getElementsByClassName('popup-logout')[0];
 const popUpTolong = document.getElementsByClassName('popup-tolong');
+const popUpSelesai = document.getElementsByClassName('popup-selesai')[0];
+const popUpTidakSelesai = document.getElementsByClassName('popup-tidak_selesai')[0];
 
 if (popUpRegistrasi != undefined) {
   if (popUpRegistrasi.dataset.popup_registrasi == false) {
@@ -206,4 +220,20 @@ if (popUpTolong != undefined) {
       }
     });
   }
+}
+
+if (popUpSelesai != undefined) {
+  popUpSelesai.addEventListener('click', function() {
+    if(popUpSelesai.classList.contains('popup-selesai')){
+      selesai();
+    }
+  });
+}
+
+if (popUpTidakSelesai != undefined) {
+  popUpTidakSelesai.addEventListener('click', function() {
+    if(popUpTidakSelesai.classList.contains('popup-tidak_selesai')){
+      tidakselesai();
+    }
+  });
 }
