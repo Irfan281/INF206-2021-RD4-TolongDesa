@@ -9,7 +9,6 @@
 
 <title>Detail Pertolongan | TolongDesa</title>
 </head>
-
 <body>
     <div class="container">
         <div class="row">
@@ -48,10 +47,7 @@
                     <?php else : ?>
                         <button type="button" class="btn btn-outline-success rounded-pill mt-md-3 fw-bold" disabled>Belum Ada Penolong</button>
                     <?php endif; ?>
-                    
-                    
                 </div>
-
             </div>
         </div>
     </div>
