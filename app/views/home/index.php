@@ -35,7 +35,7 @@
                                         <p class="m-0 fw-normal"><?= $data[$i]['nama']; ?></p>
                                         <p class="d-inline fw-light mb-0"><?= $data[$i]['peran']; ?></p>
                                         <?php if ($data[$i]['nama'] != $_SESSION['nama']) : ?>
-                                            <a data-id_mintatolong="<?= $data[$i]['id_mintatolong']; ?>" class=" btn btn-success shadow-sm py-1 px-4 fw-bold text-white me-0 me-lg-3 popup-tolong" style="float: right;">Tolong</a>
+                                            <a data-id_mintatolong="<?= $data[$i]['id_mintatolong']; ?>" class="btn btn-success shadow-sm py-1 px-4 fw-bold text-white me-0 me-lg-3 popup-tolong" style="float: right;">Tolong</a>
                                         <?php endif; ?>
                                     </div>
                                 </div>
