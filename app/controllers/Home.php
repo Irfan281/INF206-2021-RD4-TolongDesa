@@ -45,7 +45,9 @@ class Home extends Controller
     {
         $data = $this->model('MintaTolong_model')->getDataById($id_mintatolong);
         $data['tags'] = explode(", ", $data['tags']);
-        $data['penolong'] = $this->model('Menolong_model')->getPenolong($id_mintatolong)['penolong'];
+        if ($data['status'] == 'proses' || $data['status'] == 'selesai' || $data['status'] == 'tidak') {
+            $data['penolong'] = $this->model('Menolong_model')->getPenolong($id_mintatolong)['penolong'];
+        }
         $this->view('templates/header');
         $this->view('templates/sidebar-kosong', [$_SESSION['nama'], $_SESSION['peran']]);
         $this->view('templates/navbar-kosong');
