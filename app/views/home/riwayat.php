@@ -32,6 +32,12 @@
         box-shadow: 2px 6px 29px rgba(0, 0, 0, 0.16);
         border-radius: 16px;
     }
+
+    .card-style:hover {
+        background: #DBDBDB;
+        transform: translateY(-2px);
+        transition: 0.4s;
+    }
 </style>
 
 <title>Riwayat | TolongDesa</title>
@@ -46,7 +52,7 @@
                 <h1 class="fw-bold mt-5 ms-md-5 ms-0">Desa Beurawe</h1>
                 <br>
 
-                <h2 class="fw-normal ms-md-5 ms-0">Daftar kamu minta tolong</h2>
+                <h2 class="fw-normal ms-md-5 ms-0 mb-4">Daftar kamu minta tolong</h2>
                 <!-- 
                     Kombinasi tampilannya :
                        - judul, belum ada penolong -> belum
@@ -55,36 +61,38 @@
                        - - judul, nama penolong, selesai -> selesai
                  -->
                 <?php foreach ($data['minta_tolong'] as $mt) : ?>
-                    <div class="container card-style ms-md-5 ms-0 mb-3">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h5 class="card-title mt-4 ms-3"><?= $mt['judul']; ?></h5>
-                            </div>
-                            <div class="col-md-4">
-                                <?php if ($mt['status'] == 'belum') : ?>
-                                    <h6 class="card-title text-muted mt-4 mb-4 text-center">belum ada penolong</h6>
-                                <?php else : ?>
-                                    <button type="button" class="btn btn-outline-success rounded-pill mt-md-3" disabled><?= $mt['penolong']; ?></button>
-                                <?php endif; ?>
-                            </div>
-                            <div class="col-md-4">
-                                <?php if ($mt['status'] == 'proses') : ?>
-                                    <div class="mt-3 text-end mb-3">
-                                        <a data-id_mintatolong="<?= $mt['id_mintatolong']; ?>" data-id_penolong="<?= $mt['id_penolong']; ?>" class="btn btn-orange text-white px-4 mb-1 popup-selesai">Selesai</a>
-                                        <a data-id_mintatolong="<?= $mt['id_mintatolong']; ?>" data-id_penolong="<?= $mt['id_penolong']; ?>" class="btn btn-outline-orange px-4 mb-1 popup-tidak_selesai">Tidak Selesai</a>
-                                    </div>
-                                <?php elseif ($mt['status'] == 'selesai') : ?>
-                                    <h6 class="card-title text-muted mt-4 text-center mb-4">Selesai</h6>
-                                <?php elseif ($mt['status'] == 'tidak') : ?>
-                                    <h6 class="card-title mt-md-4 mt-0 mb-4 text-center text-danger">Tidak Selesai</h6>
-                                <?php endif; ?>
+                    <a href="<?= BASEURL; ?>/home/detail/<?= $mt['id_mintatolong']; ?>" style="text-decoration: none;">
+                        <div class="container card-style ms-md-5 ms-0 mb-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5 class="card-title mt-4 ms-3" style="color: black;"><?= $mt['judul']; ?></h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <?php if ($mt['status'] == 'belum') : ?>
+                                        <h6 class="card-title text-muted mt-4 mb-4 text-center">belum ada penolong</h6>
+                                    <?php else : ?>
+                                        <button type="button" class="btn btn-outline-success rounded-pill mt-md-3" disabled><?= $mt['penolong']; ?></button>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="col-md-4">
+                                    <?php if ($mt['status'] == 'proses') : ?>
+                                        <div class="mt-3 text-end mb-3">
+                                            <a data-id_mintatolong="<?= $mt['id_mintatolong']; ?>" data-id_penolong="<?= $mt['id_penolong']; ?>" class="btn btn-orange text-white px-4 mb-1 popup-selesai">Selesai</a>
+                                            <a data-id_mintatolong="<?= $mt['id_mintatolong']; ?>" data-id_penolong="<?= $mt['id_penolong']; ?>" class="btn btn-outline-orange px-4 mb-1 popup-tidak_selesai">Tidak Selesai</a>
+                                        </div>
+                                    <?php elseif ($mt['status'] == 'selesai') : ?>
+                                        <h6 class="card-title text-muted mt-4 text-center mb-4">Selesai</h6>
+                                    <?php elseif ($mt['status'] == 'tidak') : ?>
+                                        <h6 class="card-title mt-md-4 mt-0 mb-4 text-center text-danger">Tidak Selesai</h6>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 <?php endforeach; ?>
 
 
-                <h2 class="fw-normal ms-md-5 ms-0 mt-5">Daftar kamu memberi pertolongan</h2>
+                <h2 class="fw-normal ms-md-5 ms-0 mt-5 mb-4">Daftar kamu memberi pertolongan</h2>
                 <!-- 
                     Kombinasi tampilannya :
                       - Judul, Selesai
@@ -92,25 +100,27 @@
                       - Judul, Dalam proses
                  -->
                 <?php foreach (array_reverse($data['menolong']) as $mn) : ?>
-                    <div class="container card-style ms-md-5 ms-0 mb-3">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card-body">
-                                    <h5 class="card-title mt-1"><?= $mn['judul']; ?></h5>
+                    <a href="<?= BASEURL; ?>/home/detail/<?= $mt['id_mintatolong']; ?>" style="text-decoration: none;">
+                        <div class="container card-style ms-md-5 ms-0 mb-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card-body">
+                                        <h5 class="card-title mt-1" style="color: black;"><?= $mn['judul']; ?></h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <?php if ($mn['status'] == 'selesai') : ?>
+                                        <h6 class="card-title text-muted mt-md-4 mt-0 mb-4 text-center">Selesai</h6>
+                                    <?php elseif ($mn['status'] == 'proses') : ?>
+                                        <h6 class="card-title text-muted mt-md-4 mt-0 mb-4 text-center">Dalam Proses</h6>
+                                    <?php elseif ($mn['status'] == 'tidak') : ?>
+                                        <h6 class="card-title mt-md-4 mt-0 mb-4 text-center text-danger">Tidak Selesai</h6>
+                                    <?php endif; ?>
                                 </div>
                             </div>
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4">
-                                <?php if ($mn['status'] == 'selesai') : ?>
-                                    <h6 class="card-title text-muted mt-md-4 mt-0 mb-4 text-center">Selesai</h6>
-                                <?php elseif ($mn['status'] == 'proses') : ?>
-                                    <h6 class="card-title text-muted mt-md-4 mt-0 mb-4 text-center">Dalam Proses</h6>
-                                <?php elseif ($mn['status'] == 'tidak') : ?>
-                                    <h6 class="card-title mt-md-4 mt-0 mb-4 text-center text-danger">Tidak Selesai</h6>
-                                <?php endif; ?>
-                            </div>
                         </div>
-                    </div>
+                    </a>
                 <?php endforeach; ?>
 
             </div>

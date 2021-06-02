@@ -9,7 +9,6 @@
 
 <title>Detail Pertolongan | TolongDesa</title>
 </head>
-
 <body>
     <div class="container">
         <div class="row">
@@ -43,9 +42,12 @@
 
                 <div class="mt-3 ms-md-5 ms-0">
                     <h3 class="fw-bold">Penolong</h3>
-                    <button type="button" class="btn btn-outline-success rounded-pill mt-md-3 fw-bold" disabled><?= $data["penolong"]; ?></button>
+                    <?php if ($data['status'] == 'belum') : ?>
+                        <button type="button" class="btn btn-outline-success rounded-pill mt-md-3 fw-bold" disabled><?= $data["penolong"]; ?></button>
+                    <?php else : ?>
+                        <button type="button" class="btn btn-outline-success rounded-pill mt-md-3 fw-bold" disabled>Belum Ada Penolong</button>
+                    <?php endif; ?>
                 </div>
-
             </div>
         </div>
     </div>
