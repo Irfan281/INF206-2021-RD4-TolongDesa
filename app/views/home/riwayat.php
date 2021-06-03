@@ -62,11 +62,11 @@
                  -->
                 <?php foreach ($data['minta_tolong'] as $mt) : ?>
                     <div class="container card-style ms-md-5 ms-0 mb-3 py-1">
-                        <div class="row">
-                            <div class="col-md-4 align-self-center cardlink">
+                        <div class="row cardlink" data-id_mintatolong="<?= $mt['id_mintatolong']; ?>">
+                            <div class="col-md-4 align-self-center">
                                 <h5 class="card-title ms-3" style="color: black; text-align: left;"><?= $mt['judul']; ?></h5>
                             </div>
-                            <div class="col-md-4 text-center cardlink">
+                            <div class="col-md-4 text-center">
                                 <?php if ($mt['status'] == 'belum') : ?>
                                     <h6 class="card-title text-muted mt-4 mb-4 text-center">belum ada penolong</h6>
                                 <?php else : ?>
@@ -97,7 +97,7 @@
                       - Judul, Dalam proses
                  -->
                 <?php foreach (array_reverse($data['menolong']) as $mn) : ?>
-                    <a href="<?= BASEURL; ?>/home/detail/<?= $mt['id_mintatolong']; ?>" style="text-decoration: none;">
+                    <a href="<?= BASEURL; ?>/home/detail/<?= $mn['id_mintatolong']; ?>" style="text-decoration: none;">
                         <div class="container card-style ms-md-5 ms-0 mb-3">
                             <div class="row">
                                 <div class="col-md-4">
@@ -126,8 +126,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        $(".cardlink").on('click', function() {
-            window.location = "<?= BASEURL; ?>/home/detail/<?= $mt['id_mintatolong']; ?>";
+        $(".cardlink").each(function() {
+            $(this).on('click', function() {
+                let id = $(this).data('id_mintatolong');
+                window.location = `<?= BASEURL; ?>/home/detail/${id}`;
+            });
         });
     </script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
