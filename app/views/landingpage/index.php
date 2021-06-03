@@ -143,14 +143,14 @@
             </div>
             <div class="col-md-auto">
               <a href="mailto:tolongdesa@gmail.com?body=Halo%20TolongDesa%20Team%20%F0%9F%91%8B" style="text-decoration: none;">
-              <div class="card" data-aos="fade-up" style="height: 300px;">
-                <div class="content">
-                  <h1 class="text-primary fw-bold" style="font-size: 7rem;"><i class="bi bi-envelope"></i></i></h1>
-                  <div class="contentBx">
-                    <h4 class="text-muted">Email</h4>
+                <div class="card" data-aos="fade-up" style="height: 300px;">
+                  <div class="content">
+                    <h1 class="text-primary fw-bold" style="font-size: 7rem;"><i class="bi bi-envelope"></i></i></h1>
+                    <div class="contentBx">
+                      <h4 class="text-muted">Email</h4>
+                    </div>
                   </div>
                 </div>
-              </div>
               </a>
             </div>
           </div>
@@ -167,7 +167,7 @@
         <div>
           <p class="text-center text-white p-2 m-0 fw-light" style="background-color: rgb(0, 0, 0)">
             Made with <i class="bi bi-heart-fill text-danger"></i> by RD4 <br />
-            <i class="bi bi-info-circle text-white"></i> 2021
+            <i class='bx bx-copyright'></i> 2021
           </p>
         </div>
       </footer>
